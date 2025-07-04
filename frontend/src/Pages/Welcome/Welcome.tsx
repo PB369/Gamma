@@ -1,24 +1,26 @@
+import BackgroundLights from '../../components/BackgroundLights/BackgroundLights';
 import styles from './css/Welcome.module.scss';
+import { motion } from "motion/react"
 
 const Welcome = () => {
+  const animatedFadeUp = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: (delay = 0.25, duration = 0.8) => ({delay, duration})
+  }
+
   return (
     <div className={styles.welcomePageContainer}>
       <div className={styles.welcomeContentContainer}>
-        <img src="/logos/gamma-yellow.png" alt="Gamma Logo" draggable={false}/>
-        <h1>Welcome to Gamma</h1>
-        <p>
+        <motion.img src="/logos/gamma-yellow.png" alt="Gamma Logo" draggable={false} {...animatedFadeUp} transition={animatedFadeUp.transition(0.25, 1.5)}/>
+        <motion.h1  {...animatedFadeUp} transition={animatedFadeUp.transition(0.5, 1.5)}>Welcome to Gamma</motion.h1>
+        <motion.p {...animatedFadeUp} transition={animatedFadeUp.transition(0.75, 1.5)}>
           Optimizing <span>your</span> daily journey with a bold and <span>effective</span> approach to personal <span>management.</span>
-        </p>
-        <button>Get Started</button>
+        </motion.p>
+        <motion.button {...animatedFadeUp} transition={animatedFadeUp.transition(1, 1.5)}>Get Started</motion.button>
       </div>
 
-      <div className={styles.backgroundLights}>
-        <div className={`${styles.blob} ${styles.yellow} ${styles.moveDiagonal}`} style={{ animationDuration: '10s' }}/>
-        <div className={`${styles.blob} ${styles.white} ${styles.moveReverseDiagonal}`} style={{ animationDuration: '10s' }}/>
-        <div className={`${styles.blob} ${styles.yellow} ${styles.moveHorizontal}`} style={{ animationDuration: '10s' }}/>
-        <div className={`${styles.blob} ${styles.white} ${styles.moveVertical}`} style={{ animationDuration: '10s' }}/>
-        <div className={`${styles.blob} ${styles.yellow} ${styles.moveReverseDiagonal} ${styles.moveHorizontal}`} style={{ animationDuration: '10s', translate: '65vw -50vh' }}/>
-      </div>
+      <BackgroundLights/>
     </div>
   );
 };
