@@ -1,0 +1,148 @@
+.welcomePageContainer {
+  position: relative;
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.welcomePageContainer .welcomeContentContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.welcomePageContainer .welcomeContentContainer img {
+  width: 126px;
+  filter: drop-shadow(0 8px 20px #ffeb12);
+  margin-bottom: 80px;
+}
+.welcomePageContainer .welcomeContentContainer h1 {
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 40px;
+}
+.welcomePageContainer .welcomeContentContainer h1:hover {
+  cursor: default;
+}
+.welcomePageContainer .welcomeContentContainer p {
+  color: transparent;
+  font-size: 36px;
+  font-weight: bold;
+  -webkit-text-stroke: 1px #fff;
+  width: 40%;
+  margin-bottom: 100px;
+}
+.welcomePageContainer .welcomeContentContainer p span {
+  color: #fff;
+  -webkit-text-stroke: 0;
+}
+.welcomePageContainer .welcomeContentContainer p:hover {
+  cursor: default;
+}
+.welcomePageContainer .welcomeContentContainer button {
+  border: 1px solid #ffeb12;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  box-shadow: 0 0 8px #e0c90f;
+  transition: 0.25s;
+}
+.welcomePageContainer .welcomeContentContainer button:hover {
+  background-color: #ffeb12;
+  color: #000;
+  box-shadow: 0 0 15px 2px #e0c90f;
+}
+
+.backgroundLights {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.yellow {
+  background: radial-gradient(circle, #ffeb12);
+}
+
+.white {
+  background: radial-gradient(circle, #ffffff);
+}
+
+.moveDiagonal {
+  top: 0%;
+  left: 0%;
+  animation-name: diagonalMove;
+}
+
+.moveVertical {
+  top: 25%;
+  left: 75%;
+  animation-name: verticalMove;
+}
+
+.moveHorizontal {
+  top: 10%;
+  left: 100%;
+  animation-name: horizontalMove;
+}
+
+.moveReverseDiagonal {
+  top: 80%;
+  left: 25%;
+  animation-name: reverseDiagonalMove;
+}
+
+@keyframes diagonalMove {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(200%, 200%);
+  }
+}
+@keyframes verticalMove {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@keyframes horizontalMove {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+@keyframes reverseDiagonalMove {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(-100%, -100%);
+  }
+}/*# sourceMappingURL=Welcome.module.css.map */

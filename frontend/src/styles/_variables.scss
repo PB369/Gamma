@@ -2,31 +2,31 @@
 
 //Dark Mode Colors:
 .dark {
-  --primary-color: #0D1333;
-  --secondary-color: #061A40;
-  --tertiary-color: #1D2F51;
-  --quaternary-color: #C8D0DE;
-  --text-color: #C8D0DE;
+  --primary-color: #FFEB12;
+  --secondary-color: #E0C90F;
+  --tertiary-color: #C1A60C;
+  --quaternary-color: #9E880B;
+  --text-color: #fff;
   --shadow-color: rgba(255, 255, 255, 0.25);
-  --border-color: #808A9D;
-  --pageMessage-color: #7F8693;
+  --borderV1-color: #FFEB12;
+  --borderV2-color: #E0C90F;
   --button-color: #C8D0DE;
   --buttonText-color: #000;
   --selected-color: #7F8693;
 }
 
 .light {
-  --primary-color: #fff;
-  --secondary-color: #061A40;
-  --tertiary-color: #FFF;
-  --quaternary-color: #fff;
-  --text-color: #000;
-  --shadow-color: rgba(0,0,0,0.25);
-  --border-color: #000;
-  --pageMessage-color: #C0C0C0;
-  --button-color: #061A40;
-  --buttonText-color: #fff;
-  --selected-color: #061A40;
+  --primary-color: #C1A60C;
+  --secondary-color: #9E880B;
+  --tertiary-color: #74640D;
+  --quaternary-color: #534807;
+  --text-color: #fff;
+  --shadow-color: rgba(255, 255, 255, 0.25);
+  --borderV1-color: #FFEB12;
+  --borderV2-color: #E0C90F;
+  --button-color: #C8D0DE;
+  --buttonText-color: #000;
+  --selected-color: #7F8693;
 }
 
 //Device sizes:
