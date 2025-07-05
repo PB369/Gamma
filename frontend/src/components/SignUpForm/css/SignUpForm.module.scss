@@ -1,0 +1,138 @@
+.signUpContainer {
+  background-color: #000;
+  box-shadow: 0 0 14px 4px #E0C90F;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+  }
+
+  .oAuthOptionsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .googleOAuthBtn {
+      border: 1px solid #E0C90F;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+    }
+
+    .githubOAuthBtn {
+      border: 1px solid #E0C90F;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+    }
+  }
+
+  .divider {
+    display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .divisionLine {
+      height: 1px;
+      width: 95%;
+      background-color: #fff;
+    }
+    .textOfDivisionLine {
+      color: #fff;
+      width: 5%;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+
+  .signUpForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .inputsContainer {
+      display: flex;
+      flex-direction: column;
+
+      .firstLastNameInputsContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      input {
+        border: 1px solid #E0C90F;
+        background-color: #313131;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+
+        &::placeholder {
+          color: #fff;
+        }
+      }
+    }
+
+    .checkboxesContainer {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+
+      div {
+        display: flex;
+
+        .checkbox {
+          // Ver como estilizar, futuramente
+        }
+
+        label {
+          color: #fff;
+        }
+      }
+    }
+
+    .signUpFormBtn {
+      background-color: #FFEB12;
+      border-radius: 8px;
+      padding: 20px 15px;
+      color: #000;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .signInRedirectPromptContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+
+      p {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      button {
+        color: #FFEB12;
+        font-weight: 600;
+      }
+    }
+  }
+}
