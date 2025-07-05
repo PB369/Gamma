@@ -1,8 +1,15 @@
 import styles from './css/SignUpForm.module.scss'
+import { motion } from "motion/react"
 
 const SignUpForm = () => {
+  const animatedFadeUp = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: (delay = 0.25, duration = 0.8) => ({delay, duration})
+  }
+
   return (
-    <div className={styles.signUpContainer}>
+    <motion.div className={styles.signUpContainer} {...animatedFadeUp} transition={animatedFadeUp.transition(0.25, 1.5)}>
       <h2>Create your account</h2>
       <div className={styles.oAuthOptionsContainer}>
         <button className={styles.googleOAuthBtn}>
@@ -46,7 +53,7 @@ const SignUpForm = () => {
           <button>Sign In</button>
         </div>
       </form>
-    </div>
+    </motion.div>
   )
 }
 
