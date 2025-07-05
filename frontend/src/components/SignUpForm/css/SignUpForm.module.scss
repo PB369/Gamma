@@ -7,12 +7,17 @@
   align-items: center;
   flex-direction: column;
   z-index: 1;
+  width: 400px;
+  padding: 50px;
 
   h2 {
     font-size: 24px;
     font-weight: 500;
     color: #fff;
     text-align: center;
+    margin-bottom: 20px;
+
+    &:hover {cursor: default;}
   }
 
   .oAuthOptionsContainer {
@@ -20,6 +25,12 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    .googleOAuthBtn, .githubOAuthBtn {
+      color: #fff;
+      padding: 10px 15px;
+      width: 45%;
+    }
 
     .googleOAuthBtn {
       border: 1px solid #E0C90F;
@@ -38,6 +49,11 @@
       align-items: center;
       border-radius: 4px;
     }
+
+    img {
+      width: 24px;
+      margin-right: 10px;
+    }
   }
 
   .divider {
@@ -46,17 +62,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 25px 0 10px 0;
+    &:hover {cursor: default;}
 
     .divisionLine {
       height: 1px;
-      width: 95%;
+      width: 85%;
       background-color: #fff;
     }
+
     .textOfDivisionLine {
       color: #fff;
-      width: 5%;
-      font-size: 12px;
+      width: 15%;
+      font-size: 14px;
       font-weight: 500;
+      margin: 0 8px;
+      text-align: center;
     }
   }
 
@@ -70,19 +91,28 @@
     .inputsContainer {
       display: flex;
       flex-direction: column;
+      border: none;
 
       .firstLastNameInputsContainer {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        input {
+          width: 45%;
+        }
       }
 
       input {
         border: 1px solid #E0C90F;
-        background-color: #313131;
+        background-color: #1A1A1A;
         color: #fff;
         font-size: 16px;
         font-weight: 500;
+        width: 100%;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 15px 0;
 
         &::placeholder {
           color: #fff;
@@ -95,16 +125,69 @@
       justify-content: center;
       align-items: flex-start;
       flex-direction: column;
+      border: none;
+      width: 100%;
+      margin: 15px 0;
 
-      div {
+      .checkboxWrapper {
         display: flex;
-
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        
         .checkbox {
-          // Ver como estilizar, futuramente
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
         }
 
-        label {
+        .checkmark {
+          position: relative;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #000;
+          border: 1px solid #FFEB12;
+        }
+
+        .checkmark::after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+
+        .checkbox:checked ~ .checkmark::after {
+          display: block;
+        }
+
+        .checkmark::after {
+          left: 35%;
+          top: 20%;
+          width: 6px;
+          height: 10px;
+          border: solid #FFEB12;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+        
+        p {
           color: #fff;
+          font-size: 14px;
+          margin: 5px;
+          cursor: default;
+
+          button {
+            color: #FFEB12;
+            font-weight: 600;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
       }
     }
@@ -116,6 +199,7 @@
       color: #000;
       font-weight: 600;
       width: 100%;
+      margin: 15px 0;
     }
 
     .signInRedirectPromptContainer {
@@ -123,15 +207,22 @@
       justify-content: center;
       align-items: center;
       font-size: 16px;
+      width: 100%;
+      &:hover {cursor: default;}
 
       p {
         color: #fff;
         font-weight: 600;
+        margin-right: 5px;
       }
 
       button {
         color: #FFEB12;
         font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
