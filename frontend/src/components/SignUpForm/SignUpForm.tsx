@@ -1,11 +1,19 @@
+import { useAuth } from '../../contexts/auth/useAuth'
 import styles from './css/SignUpForm.module.scss'
 import { motion } from "motion/react"
 
 const SignUpForm = () => {
+  const auth = useAuth();
+
   const animatedFadeUp = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     transition: (delay = 0.25, duration = 0.8) => ({delay, duration})
+  }
+
+  const handleSignUp = (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    auth.signIn();
   }
 
   return (
@@ -47,10 +55,10 @@ const SignUpForm = () => {
             <p>I agree with the <button>Privacy Policy</button>.</p>
           </div>
         </fieldset>
-        <button className={styles.signUpFormBtn}>Sign Up</button>
+        <button type='button' className={styles.signUpFormBtn} onClick={handleSignUp}>Sign Up</button>
         <div className={styles.signInRedirectPromptContainer}>
           <p>Already have an account?</p>
-          <button>Sign In</button>
+          <button type='button'>Sign In</button>
         </div>
       </form>
     </motion.div>

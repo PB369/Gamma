@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import BackgroundLights from '../../components/BackgroundLights/BackgroundLights';
-import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import styles from './css/Welcome.module.scss';
 import { AnimatePresence, motion } from "motion/react"
+import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
   const animatedFadeUp = {
@@ -10,26 +9,24 @@ const Welcome = () => {
     animate: { opacity: 1 },
     transition: (delay = 0.25, duration = 0.8) => ({delay, duration})
   }
-  
+
   const animatedFadeOut = {
     exit: { opacity: 0 },
     animate: { opacity: 1 },
     transition: (delay = 0.25, duration = 0.8) => ({delay, duration})
   }
-
-  const [showSignUpForm , setShowSignUpForm] = useState<boolean>(false);
   const [isExiting , setIsExiting] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleGetStarted = () => {
     setIsExiting(true);
-    setTimeout(()=>{setShowSignUpForm(true)}, 1500);
+    setTimeout(()=>navigate('/authentication'), 1500);
   }
 
   return (
     <div className={styles.welcomePageContainer}>
       <AnimatePresence>
         {
-        showSignUpForm ? <SignUpForm/> : 
           isExiting ? null :
             <motion.div className={styles.welcomeContentContainer} {...animatedFadeOut} transition={animatedFadeOut.transition(0.25, 1.5)}>
               <motion.img src="/logos/gamma-yellow.png" alt="Gamma Logo" draggable={false} {...animatedFadeUp} transition={animatedFadeUp.transition(0.25, 1.5)}/>
@@ -41,7 +38,6 @@ const Welcome = () => {
             </motion.div>
         }
       </AnimatePresence>
-      <BackgroundLights/>
     </div>
   );
 };

@@ -8,7 +8,7 @@
   flex-direction: column;
   z-index: 1;
   width: 400px;
-  padding: 50px;
+  padding: 50px 55px;
 
   h2 {
     font-size: 24px;
@@ -164,7 +164,7 @@
 
         .checkmark::after {
           left: 35%;
-          top: 20%;
+          top: 15%;
           width: 6px;
           height: 10px;
           border: solid #FFEB12;
@@ -195,7 +195,7 @@
     .signUpFormBtn {
       background-color: #FFEB12;
       border-radius: 8px;
-      padding: 20px 15px;
+      padding: 15px 0;
       color: #000;
       font-weight: 600;
       width: 100%;
