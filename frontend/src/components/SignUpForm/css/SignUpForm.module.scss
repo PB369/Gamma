@@ -200,8 +200,26 @@
       font-weight: 600;
       width: 100%;
       margin: 15px 0;
-    }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 54px;
 
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.9;
+      }
+      
+      .loader {
+        border: 3px solid #FFEB12; /* Cor de fundo */
+        border-top: 3px solid #000; /* Cor da borda que gira */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+      }
+    }
+    
     .signInRedirectPromptContainer {
       display: flex;
       justify-content: center;
@@ -215,7 +233,7 @@
         font-weight: 600;
         margin-right: 5px;
       }
-
+      
       button {
         color: #FFEB12;
         font-weight: 600;
@@ -226,4 +244,9 @@
       }
     }
   }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

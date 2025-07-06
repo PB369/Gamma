@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useAuth } from '../../contexts/auth/useAuth'
 import styles from './css/SignUpForm.module.scss'
 import { motion } from "motion/react"
 
 const SignUpForm = () => {
   const auth = useAuth();
+  
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const animatedFadeUp = {
     initial: { opacity: 0 },
@@ -13,7 +16,8 @@ const SignUpForm = () => {
 
   const handleSignUp = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    auth.signIn();
+    setIsLoading(true);
+    setTimeout(() => auth.signIn(), 3000);
   }
 
   return (
@@ -55,7 +59,7 @@ const SignUpForm = () => {
             <p>I agree with the <button>Privacy Policy</button>.</p>
           </div>
         </fieldset>
-        <button type='button' className={styles.signUpFormBtn} onClick={handleSignUp}>Sign Up</button>
+        <button type='button' className={styles.signUpFormBtn} onClick={handleSignUp} disabled={isLoading}>{isLoading ? <span className={styles.loader}></span> : 'Sign Up'}</button>
         <div className={styles.signInRedirectPromptContainer}>
           <p>Already have an account?</p>
           <button type='button'>Sign In</button>

@@ -7,6 +7,7 @@ import WelcomeLayout from './layouts/WelcomeLayout';
 import AppLayout from './layouts/AppLayout';
 import Authentication from './Pages/Authentication/Authentication';
 import DashboardLayout from './layouts/DashboardLayout';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
 
@@ -22,26 +23,10 @@ function App() {
 
   return (
     <Routes>
-      <Route 
-        path="/" 
-        element={
-          <WelcomeLayout>
-            <PublicRoute>
-              <Welcome />
-            </PublicRoute>
-          </WelcomeLayout>
-        } 
-      />
-      <Route
-        path="/authentication"
-        element={
-          <WelcomeLayout>
-            <PublicRoute>
-              <Authentication />
-            </PublicRoute>
-          </WelcomeLayout>
-        }
-      />
+      <Route element={<PublicRoute><WelcomeLayout /></PublicRoute>}>
+        <Route path="/" element={<Welcome />} />
+        <Route path="authentication" element={<Authentication />} />
+      </Route>
       <Route path='/app'
         element={
             <ProtectedRoute>
@@ -54,6 +39,9 @@ function App() {
           <Route path="widgets" element={null} />
         </Route>
         {/* Outras rotas do app aqui */}
+      </Route>
+      <Route element={<WelcomeLayout />}>
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )
