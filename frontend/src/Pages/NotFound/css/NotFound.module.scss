@@ -1,0 +1,113 @@
+.notFoundPageContainer {
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+
+  .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    .gammaLogo {
+      width: 96px;
+      filter: drop-shadow(0 8px 20px #ffeb12);
+  
+      @media screen and (min-width: $mobile-large) {
+        width: 126px;
+      }
+    }
+  }
+
+
+  .middle {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    
+    .errorContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .errorMessageContainer {
+        h1 {
+          font-size: 24px;
+          font-weight: 400;
+          color: #fff;
+          cursor: default;
+  
+          @media screen and (min-width: $mobile-small) {
+            font-size: 96px;
+          }
+        }
+      
+        p {
+          color: #fff;
+          font-size: 48px;
+          width: 100%;
+          margin-bottom: 25px;
+          cursor: default;
+          font-weight: 300;
+          
+          @media screen and (min-width: ($tablet - 32px)) {
+            
+          }
+          
+          @media screen and (min-width: ($laptop - 124px)) {
+            
+          }
+        }
+
+      }
+      
+
+      button {
+        border: 1px solid #ffeb12;
+        border-radius: 8px;
+        padding: 10px 20px;
+        background-color: #000;
+        box-shadow: 0 0 8px #e0c90f;
+        transition: 0.25s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &:hover {
+          background-color: #ffeb12;
+          color: #000;
+          box-shadow: 0 0 15px 2px #e0c90f;
+          
+          p {color: #000;}
+          img {
+            filter: invert(100);
+          }
+        }
+        
+        img {
+          width: 36px;
+          margin-right: 10px;
+        }
+        
+        p {
+          font-weight: 500;
+          font-size: 24px;
+          color: #fff;
+        }
+      }
+    }
+
+  }
+
+  .bottom {
+    flex: 1;
+  }
+}

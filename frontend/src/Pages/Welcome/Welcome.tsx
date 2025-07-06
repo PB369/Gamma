@@ -26,17 +26,16 @@ const Welcome = () => {
   return (
     <div className={styles.welcomePageContainer}>
       <AnimatePresence>
-        {
-          isExiting ? null :
-            <motion.div className={styles.welcomeContentContainer} {...animatedFadeOut} transition={animatedFadeOut.transition(0.25, 1.5)}>
-              <motion.img src="/logos/gamma-yellow.png" alt="Gamma Logo" draggable={false} {...animatedFadeUp} transition={animatedFadeUp.transition(0.25, 1.5)}/>
-              <motion.h1  {...animatedFadeUp} transition={animatedFadeUp.transition(0.5, 1.5)}>Welcome to Gamma</motion.h1>
-              <motion.p {...animatedFadeUp} transition={animatedFadeUp.transition(0.75, 1.5)}>
-                Optimizing <span>your</span> daily journey with a bold and <span>effective</span> approach to personal <span>management.</span>
-              </motion.p>
-              <motion.button {...animatedFadeUp} transition={animatedFadeUp.transition(1, 1.5)} onClick={handleGetStarted}>Get Started</motion.button>
-            </motion.div>
-        }
+        {!isExiting && (
+          <motion.div className={styles.welcomeContentContainer} {...animatedFadeOut} transition={animatedFadeOut.transition(0.25, 1.5)}>
+            <motion.img src="/logos/gamma-yellow.png" alt="Gamma Logo" draggable={false} {...animatedFadeUp} transition={animatedFadeUp.transition(0.25, 1.5)}/>
+            <motion.h1  {...animatedFadeUp} transition={animatedFadeUp.transition(0.5, 1.5)}>Welcome to Gamma</motion.h1>
+            <motion.p {...animatedFadeUp} transition={animatedFadeUp.transition(0.75, 1.5)}>
+              Optimizing <span>your</span> daily journey with a bold and <span>effective</span> approach to personal <span>management.</span>
+            </motion.p>
+            <motion.button {...animatedFadeUp} transition={animatedFadeUp.transition(1, 1.5)} onClick={handleGetStarted}>Get Started</motion.button>
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );

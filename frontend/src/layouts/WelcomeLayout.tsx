@@ -1,11 +1,11 @@
-import type { ReactNode } from "react";
 import BackgroundLights from "../components/BackgroundLights/BackgroundLights";
+import { Outlet } from "react-router-dom";
 
-const WelcomeLayout = ({ children }: { children: ReactNode }) => (
-  <>
+const WelcomeLayout = () => (
+  <div className="welcomeLayout">
     <BackgroundLights />
-    {children}
-  </>
+    <Outlet/>
+  </div>
 );
 
 export default WelcomeLayout;

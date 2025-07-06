@@ -29,12 +29,11 @@
       font-style: italic;
       color: #fff;
       margin-bottom: 40px;
+      cursor: default;
 
       @media screen and (min-width: $mobile-small) {
         font-size: 28px;
       }
-
-      &:hover { cursor: default;}
     }
   
     p {
@@ -44,6 +43,7 @@
       -webkit-text-stroke: 1px #ffffff;
       width: 85%;
       margin-bottom: 100px;
+      cursor: default;
 
       @media screen and (min-width: ($tablet - 32px)) {
         width: 70%;
@@ -57,8 +57,6 @@
         color: #fff;
         -webkit-text-stroke: 0;
       }
-
-      &:hover { cursor: default;}
     }
   
     button {
