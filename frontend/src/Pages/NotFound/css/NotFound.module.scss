@@ -6,7 +6,6 @@
   align-items: center;
   flex-direction: column;
 
-
   .top {
     display: flex;
     justify-content: center;
@@ -22,7 +21,6 @@
       }
     }
   }
-
 
   .middle {
     z-index: 1;
@@ -66,9 +64,7 @@
             
           }
         }
-
       }
-      
 
       button {
         border: 1px solid #ffeb12;

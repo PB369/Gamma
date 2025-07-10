@@ -8,6 +8,7 @@ import AppLayout from './layouts/AppLayout/AppLayout';
 import Authentication from './Pages/Authentication/Authentication';
 import DashboardLayout from './layouts/DashboardLayout';
 import NotFound from './Pages/NotFound/NotFound';
+import WidgetsList from './components/WidgetsList/WidgetsList';
 
 function App() {
 
@@ -36,7 +37,7 @@ function App() {
       >
         <Route element={<DashboardLayout />}>
           <Route path="dashboard" element={null} />
-          <Route path="widgets" element={null} />
+          <Route path="widgets" element={<WidgetsList/>} />
         </Route>
         {/* Outras rotas do app aqui */}
       </Route>
