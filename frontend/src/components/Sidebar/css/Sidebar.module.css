@@ -10,7 +10,7 @@
   z-index: 999;
 }
 .sidebarContainer .gammaLogo {
-  width: 50px;
+  width: 60px;
 }
 .sidebarContainer .pagesNavigator ul li {
   margin: 20px 0;
@@ -19,5 +19,5 @@
   width: 40px;
 }
 .sidebarContainer .logoutBtn img {
-  width: 35px;
+  width: 45px;
 }/*# sourceMappingURL=Sidebar.module.css.map */
