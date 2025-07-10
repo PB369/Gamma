@@ -1,0 +1,47 @@
+.widgetCardContainer {
+  border: 1px solid #FFEB12;
+  border-radius: 4px;
+  background-color: #1D1D1D;
+  padding: 8px 6px;
+  width: 80%;
+  min-height: 52px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+
+  .widgetInfoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .iconContainer {
+      background-color: #E0C90F;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      padding: 8px;
+      margin-right: 10px;
+  
+      img {
+        width: 24px;
+      }
+    }
+  
+    p {
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+
+  .addIcon {
+    width: 20px;
+    margin-right: 5px;
+  }
+}
