@@ -9,6 +9,7 @@ import Authentication from './Pages/Authentication/Authentication';
 import DashboardLayout from './layouts/DashboardLayout';
 import NotFound from './Pages/NotFound/NotFound';
 import WidgetsList from './components/WidgetsList/WidgetsList';
+import Chat from './Pages/App/Chat/Chat';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="dashboard" element={null} />
           <Route path="widgets" element={<WidgetsList/>} />
         </Route>
+        <Route path='chat' element={<Chat/>}/>
         {/* Outras rotas do app aqui */}
       </Route>
       <Route element={<WelcomeLayout />}>

@@ -1,0 +1,53 @@
+.chatsListContainer {
+  z-index: 990;
+  background-color: #252525;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  left: 100px;
+  width: 325px;
+  height: 100vh;
+  padding: 30px 0;
+  box-shadow: 8px 0 8px -8px #000;
+  border-left: 2px solid #FFEB12;
+  position: fixed;
+
+  h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 28px;
+    border-bottom: 1px solid #FFEB12;
+    padding-bottom: 25px;
+    width: 90%;
+    text-align: center;
+    cursor: default;
+  }
+
+  .yourChatsContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: default;
+
+    .yourChatsTitle {
+      width: 80%;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .chatsList {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      overflow-y: scroll;
+    }
+  }
+
+}
