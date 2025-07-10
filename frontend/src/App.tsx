@@ -4,7 +4,7 @@ import Welcome from "./Pages/Welcome/Welcome"
 import type { JSX } from 'react';
 import { useAuth } from './contexts/auth/useAuth';
 import WelcomeLayout from './layouts/WelcomeLayout';
-import AppLayout from './layouts/AppLayout';
+import AppLayout from './layouts/AppLayout/AppLayout';
 import Authentication from './Pages/Authentication/Authentication';
 import DashboardLayout from './layouts/DashboardLayout';
 import NotFound from './Pages/NotFound/NotFound';

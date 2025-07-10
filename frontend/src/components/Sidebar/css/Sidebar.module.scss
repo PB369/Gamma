@@ -1,0 +1,29 @@
+.sidebarContainer {
+  background-color: #252525;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100px;
+  padding: 30px 0;
+  box-shadow: 0 0 8px #000;
+  z-index: 999;
+
+  .gammaLogo {
+    width: 50px;
+  }
+
+  .pagesNavigator {
+    ul li {
+      margin: 20px 0;
+      
+      .link img {
+        width: 40px;
+      }
+    }
+  }
+
+  .logoutBtn img {
+    width: 35px;
+  }
+}
