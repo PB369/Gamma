@@ -1,5 +1,5 @@
 .widgetsListContainer {
-  z-index: 999;
+  z-index: 998;
   background-color: #252525;
   display: flex;
   justify-content: flex-start;
@@ -10,7 +10,7 @@
   height: 100vh;
   padding: 30px 0;
   box-shadow: 8px 0 8px -8px #000;
-  border-left: 1px solid #FFEB12;
+  border-left: 2px solid #FFEB12;
   position: fixed;
 
   h2 {
