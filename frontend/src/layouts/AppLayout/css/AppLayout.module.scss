@@ -1,6 +1,11 @@
 .appLayout {
   display: flex;
   min-height: 100vh;
+  flex-direction: row;
+
+  &.mobileOrientation {
+    flex-direction: column;
+  }
 
   .pageMainContent {
     flex: 1;

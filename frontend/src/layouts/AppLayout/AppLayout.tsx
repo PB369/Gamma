@@ -19,7 +19,7 @@ const AppLayout = () => {
   }
 
   return (
-    <div className={styles.appLayout}>
+    <div className={`${styles.appLayout} ${screenWidth < 768 && styles.mobileOrientation}`}>
       {
         screenWidth < 768 ? 
           <SidebarMobile  onSignOutBtnClick={()=>setShowConfirmModal(true)}/> 
