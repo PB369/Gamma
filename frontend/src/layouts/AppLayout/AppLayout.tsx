@@ -4,9 +4,9 @@ import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
 import { useAuth } from "../../contexts/auth/useAuth";
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
-import SidebarDesktop from "../../components/SidebarDesktop/SidebarDesktop";
+import SidebarDesktop from "../../components/NavBarDesktop/NavBarDesktop";
 import useScreenWidth from "../../hooks/useScreenWidth";
-import SidebarMobile from "../../components/SidebarMobile/SidebarMobile";
+import SidebarMobile from "../../components/NavBarMobile/NavBarMobile";
 
 const AppLayout = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
