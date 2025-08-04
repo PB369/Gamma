@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './css/NavBarMobile.module.scss'
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { Divide as Hamburger } from 'hamburger-react'
 
 type Props = {
   onSignOutBtnClick: () => void; 
@@ -16,23 +17,31 @@ const NavBarMobile = ({onSignOutBtnClick}: Props) => {
     setIsExpanded(prev => !prev)
   }
 
+  const animatedFadeUp = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: (delay = 0.25, duration = 0.8) => ({delay, duration})
+  }
+
   return (
     <>
-      <div className={`${styles.navBarContainer} ${isExpanded ? styles.expanded : ''}`}>
+      <motion.div className={`${styles.navBarContainer} ${isExpanded ? styles.expanded : ''}`}
+      animate={{ height: isExpanded ? '100vh' : '10vh' }}
+      transition={{ duration: 0.25 }}
+      >
         <div className={styles.navBarHeader}>
           <img className={styles.gammaLogo} src="/logos/gamma-yellow.png" alt="gamma-logo" />
-          <button className={styles.menuBtn} onClick={onMenuBtnClick}>
-            {isExpanded ?
-              'X'
-              :
-              <img src={`/whiteIcons/menu-icon.png`} alt="menu-icon" />}
-          </button>
+          <Hamburger onToggle={onMenuBtnClick} color='white'/>
         </div>
 
         {isExpanded && (
           <div className={styles.navSectionContainer}>
             <div className={styles.top}/>
-            <nav className={styles.pagesNavigator}>
+            <motion.nav 
+              className={styles.pagesNavigator}
+              {...animatedFadeUp}
+              transition={animatedFadeUp.transition(0.35, 1.5)}
+            >
               <ul>
                 <li>
                   <Link to='/app/dashboard' className={`${styles.link} ${isActive('/app/dashboard') ? styles.currentPage : ''}`} onClick={()=>setIsExpanded(false)}>
@@ -70,13 +79,17 @@ const NavBarMobile = ({onSignOutBtnClick}: Props) => {
                   </Link>
                 </li>
               </ul>
-            </nav>
-            <button className={styles.logoutBtn} onClick={onSignOutBtnClick}>
+            </motion.nav>
+            <motion.button 
+              className={styles.logoutBtn} onClick={onSignOutBtnClick}
+              {...animatedFadeUp}
+              transition={animatedFadeUp.transition(0.35, 1.5)}
+            >
               Sign Out
-            </button>
+            </motion.button>
           </div>
         )}
-      </div>
+      </motion.div>
     </>
   )
 }
