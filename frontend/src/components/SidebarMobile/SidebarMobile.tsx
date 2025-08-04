@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
-import styles from './css/SidebarDesktop.module.scss'
+import styles from './css/SidebarMobile.module.scss'
 
 type Props = {
   onSignOutBtnClick: () => void; 
 }
 
-const SidebarDesktop = ({onSignOutBtnClick}: Props) => {
+const SidebarMobile = ({onSignOutBtnClick}: Props) => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
   
@@ -89,4 +89,4 @@ const SidebarDesktop = ({onSignOutBtnClick}: Props) => {
   )
 }
 
-export default SidebarDesktop;
+export default SidebarMobile;
