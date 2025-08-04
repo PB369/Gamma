@@ -31,7 +31,7 @@ const NavBarMobile = ({onSignOutBtnClick}: Props) => {
       >
         <div className={styles.navBarHeader}>
           <img className={styles.gammaLogo} src="/logos/gamma-yellow.png" alt="gamma-logo" />
-          <Hamburger onToggle={onMenuBtnClick} color='white'/>
+          <Hamburger  color='white' toggled={isExpanded} toggle={onMenuBtnClick}/>
         </div>
 
         {isExpanded && (
