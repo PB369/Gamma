@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import styles from "./css/AppLayout.module.scss"
 import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
 import { useAuth } from "../../contexts/auth/useAuth";
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
+import SidebarDesktop from "../../components/SidebarDesktop/SidebarDesktop";
 
 const AppLayout = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -17,7 +17,7 @@ const AppLayout = () => {
 
   return (
     <div className={styles.appLayout}>
-      <Sidebar onSignOutBtnClick={()=>setShowConfirmModal(true)}/>
+      <SidebarDesktop onSignOutBtnClick={()=>setShowConfirmModal(true)}/>
       <main className={styles.pageMainContent}>
         <Outlet/>
       </main>

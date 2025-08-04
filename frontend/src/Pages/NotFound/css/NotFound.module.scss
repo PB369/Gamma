@@ -28,6 +28,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
     flex: 1;
     
     .errorContainer {
@@ -38,7 +39,7 @@
 
       .errorMessageContainer {
         h1 {
-          font-size: 24px;
+          font-size: 78px;
           font-weight: 400;
           color: #fff;
           cursor: default;
@@ -50,14 +51,14 @@
       
         p {
           color: #fff;
-          font-size: 48px;
+          font-size: 34px;
           width: 100%;
           margin-bottom: 25px;
           cursor: default;
           font-weight: 300;
           
           @media screen and (min-width: ($tablet - 32px)) {
-            
+            font-size: 48px;
           }
           
           @media screen and (min-width: ($laptop - 124px)) {
@@ -89,14 +90,22 @@
         }
         
         img {
-          width: 36px;
+          width: 28px;
           margin-right: 10px;
+
+          @media screen and (min-width: $mobile-small) {
+            width: 36px;
+          }
         }
         
         p {
           font-weight: 500;
-          font-size: 24px;
+          font-size: 20px;
           color: #fff;
+
+          @media screen and (min-width: $mobile-small) {
+            font-size: 24px;
+          }
         }
       }
     }
