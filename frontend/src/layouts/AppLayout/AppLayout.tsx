@@ -10,12 +10,12 @@ import SidebarMobile from "../../components/NavBarMobile/NavBarMobile";
 
 const AppLayout = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const { signOut } = useAuth()
-  const screenWidth = useScreenWidth()
+  const { signOut } = useAuth();
+  const screenWidth = useScreenWidth();
 
   const handleSignOut = () => {
-    signOut()
-    setShowConfirmModal(false)
+    signOut();
+    setShowConfirmModal(false);
   }
 
   return (
