@@ -48,7 +48,7 @@ const WidgetsList = () => {
             <motion.button 
               className={`${styles.expandBtn} ${isExpanded && styles.expanded}`} 
               onClick={handleExpandBtn}
-              animate={{ y: isExpanded ? '70vh' : '0' }}
+              animate={{ top: isExpanded ? `${window.innerHeight * 0.7 - 20}px` : '-20px' }}
               transition={{ duration: 0.8 }}
             >
               <img src="/whiteIcons/arrowHeadToRight-icon.png" alt="arrowHeadToRight-icon" />
