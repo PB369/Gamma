@@ -24,24 +24,25 @@ const WidgetsList = () => {
       {
         screenWidth < 768 ? 
           <motion.div 
-            className={`${styles.widgetsAccordionContainer} ${isExpanded && styles.expanded}`}
+            className={`${styles.widgetsAccordionContainer} 
+            ${isExpanded && styles.expanded}`}
             animate={{ height: isExpanded ? '70vh' : '0' }}
             transition={{ duration: 0.8 }}
           >
             {
               isExpanded && (
-                    <motion.div 
-                      className={styles.mobileWidgetsListContainer}
-                      {...animatedFadeUp}
-                      transition={animatedFadeUp.transition()}
-                    >
-                      <h2>List of Widgets</h2>
-                      <div className={styles.widgetsList}>
-                        {widgetsCards.map(card => (
-                          <WidgetCard widgetName={card.widgetName} iconName={card.iconName}/>
-                          ))}
-                      </div>
-                    </motion.div>
+                <motion.div 
+                  className={styles.mobileWidgetsListContainer}
+                  {...animatedFadeUp}
+                  transition={animatedFadeUp.transition()}
+                >
+                  <h2>List of Widgets</h2>
+                  <div className={styles.widgetsList}>
+                    {widgetsCards.map(card => (
+                      <WidgetCard widgetName={card.widgetName} iconName={card.iconName}/>
+                      ))}
+                  </div>
+                </motion.div>
               )
             }
             <motion.button 
