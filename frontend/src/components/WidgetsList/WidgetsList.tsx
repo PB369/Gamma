@@ -26,25 +26,29 @@ const WidgetsList = () => {
           <motion.div 
             className={`${styles.widgetsAccordionContainer} ${isExpanded && styles.expanded}`}
             animate={{ height: isExpanded ? '70vh' : '0' }}
-            transition={{ duration: 1.25 }}
+            transition={{ duration: 0.8 }}
           >
             {
               isExpanded && (
-                <div className={styles.mobileWidgetsListContainer}>
-                  <h2>List of Widgets</h2>
-                  <div className={styles.widgetsList}>
-                    {widgetsCards.map(card => (
-                      <WidgetCard widgetName={card.widgetName} iconName={card.iconName}/>
-                      ))}
-                  </div>
-                </div>
+                    <motion.div 
+                      className={styles.mobileWidgetsListContainer}
+                      {...animatedFadeUp}
+                      transition={animatedFadeUp.transition()}
+                    >
+                      <h2>List of Widgets</h2>
+                      <div className={styles.widgetsList}>
+                        {widgetsCards.map(card => (
+                          <WidgetCard widgetName={card.widgetName} iconName={card.iconName}/>
+                          ))}
+                      </div>
+                    </motion.div>
               )
             }
             <motion.button 
               className={`${styles.expandBtn} ${isExpanded && styles.expanded}`} 
               onClick={handleExpandBtn}
-              animate={{ top: isExpanded ? 'calc(70vh - 20px)' : '' }}
-              transition={{ duration: 1.25 }}
+              animate={{ y: isExpanded ? '70vh' : '0' }}
+              transition={{ duration: 0.8 }}
             >
               <img src="/whiteIcons/arrowHeadToRight-icon.png" alt="arrowHeadToRight-icon" />
             </motion.button>
@@ -52,9 +56,6 @@ const WidgetsList = () => {
           :
           <motion.div 
             className={styles.desktopWidgetsListContainer}
-            initial={{ x: -325, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: 'easeInOut' }}
           >
             <h2>List of Widgets</h2>
             <div className={styles.widgetsList}>
