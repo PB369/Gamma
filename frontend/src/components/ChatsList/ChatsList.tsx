@@ -49,23 +49,18 @@ const ChatsList = () => {
                         <ChatCard/>
                         <ChatCard/>
                         <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
                       </div>
                     </div>
                   </div>
-                  {/* <h2>Gaia Chats</h2>
-                  <CreateNewChatBtn/>
-                  <div className={styles.yourChatsContainer}>
-                    <p className={styles.yourChatsTitle}>Your chats</p>
-                    <div className={styles.chatsList}>
-                        <ChatCard/>
-                        <ChatCard/>
-                        <ChatCard/>
-                        <ChatCard/>
-                        <ChatCard/>
-                        <ChatCard/>
-                        <ChatCard/>
-                    </div>
-                  </div> */}
                 </motion.div>
               )
             }
