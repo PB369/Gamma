@@ -92,7 +92,7 @@
     }
   }
 
-  .mobileChatsListContainer {
+  .accordionContent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,12 +101,13 @@
     width: 100%;
     border-top: 1px solid #FFEB12;
 
-    .accordionContent {
+    .mobileChatsListContainer {
       width: 70%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      height: 100%;
     }
     
     h2 {
@@ -115,31 +116,23 @@
       font-size: 28px;
     }
 
-    .yourChatsContainer {
+    .yourChatsTitle {
+      width: 100%;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .chatsList {
+      width: 100%;
+      max-height: 50%;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       flex-direction: column;
-      height: 100%;
-      width: 100%;
-
-      .yourChatsTitle {
-        width: 100%;
-        color: #fff;
-        font-weight: 600;
-        margin-bottom: 15px;
-      }
-
-      .chatsList {
-        width: 100%;
-        max-height: 60%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-        overflow-y: scroll;
-      }
+      overflow-y: scroll;
     }
-    
   }
 }
