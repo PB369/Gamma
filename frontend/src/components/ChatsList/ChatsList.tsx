@@ -24,7 +24,7 @@ const ChatsList = () => {
       {
         screenWidth < 768 ? 
           <motion.div 
-            className={`${styles.chatsAccordionContainer} 
+            className={`${styles.mobileChatsAccordionContainer} 
             ${isExpanded && styles.expanded}`}
             animate={{ height: isExpanded ? '70vh' : '0' }}
             transition={{ duration: 0.8 }}
@@ -68,63 +68,49 @@ const ChatsList = () => {
             </motion.button>
           </motion.div>
           :
-          <div className={styles.desktopChatsListContainer}>
-            <h2>Gaia Chats</h2>
-            <CreateNewChatBtn/>
-            <div className={styles.yourChatsContainer}>
-              <p className={styles.yourChatsTitle}>Your chats</p>
-              <div className={styles.chatsList}>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-                  <ChatCard/>
-              </div>
+          <motion.div className={styles.desktopChatsAccordionContainer}>
+            <div className={`${styles.desktopChatsListContainer} ${isExpanded && styles.expanded}`}>
+              {isExpanded && (
+                <>
+                  <h2>Gaia Chats</h2>
+                  <CreateNewChatBtn/>
+                  <div className={styles.yourChatsContainer}>
+                    <p className={styles.yourChatsTitle}>Your chats</p>
+                    <div className={styles.chatsList}>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                        <ChatCard/>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
-          </div>
+            <motion.button
+              className={`${styles.expandBtn} ${isExpanded && styles.expanded}`}
+              onClick={handleExpandBtn}
+              animate={{ top: isExpanded ? `${window.innerHeight * 0.7 - 20}px` : '-20px' }}
+              transition={{ duration: 0.8 }}
+            >
+              <img src="/whiteIcons/arrowHeadToRight-icon.png" alt="arrowHeadToRight-icon" />
+            </motion.button>
+          </motion.div>
       }
     </>
-
-    // <div className={styles.chatsListContainer}>
-    //   <h2>Gaia Chats</h2>
-    //   <CreateNewChatBtn/>
-    //   <div className={styles.yourChatsContainer}>
-    //     <p className={styles.yourChatsTitle}>Your chats</p>
-    //     <div className={styles.chatsList}>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //         <ChatCard/>
-    //     </div>
-    //   </div>
-    // </div>
   )
 }
 
