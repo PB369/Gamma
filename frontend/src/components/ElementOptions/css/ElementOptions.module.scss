@@ -16,13 +16,15 @@
 
     img {
       width: 20px;
-      margin-right: 5px;
+      margin-right: 10px;
     }
 
     p {
       color: #fff;
-      font-family: 600;
+      font-weight: 600;
       font-size: 14px;
+      width: 100%;
+      text-align: left;
     }
 
     &:hover {

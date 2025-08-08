@@ -34,8 +34,8 @@ const ElementOptions = ({setEditOption, setDeleteOption, cursorPosition, onClose
       ref={elementOptionsRef}
     >
       <button onClick={()=>setEditOption(true)}>
-        <img src="/whiteIcons/edit-icon.png" alt="" />
-        <p>Edit</p>
+          <img src="/whiteIcons/edit-icon.png" alt="" />
+          <p>Edit</p>
       </button>
       <button onClick={()=>setDeleteOption(true)}>
         <img src="/otherIcons/trash-icon.png" alt="" />
