@@ -10,6 +10,10 @@
   min-height: 52px;
   margin: 10px 0;
 
+  &.mobileStyling {
+    width: 90%;
+  }
+
   span {
     color: #fff;
     font-weight: 600;

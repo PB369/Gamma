@@ -7,7 +7,7 @@ import { motion } from 'motion/react'
 
 const ChatsList = () => {
   const screenWidth = useScreenWidth();
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(screenWidth < 768 ? false : true);
 
   const handleExpandBtn = () => {
     setIsExpanded(prev => !prev);

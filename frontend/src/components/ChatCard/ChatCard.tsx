@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './css/ChatCard.module.scss'
 import ElementOptions from '../ElementOptions/ElementOptions';
 import ConfirmModal from '../ConfirmModal/ConfirmModal';
+import useScreenWidth from '../../hooks/useScreenWidth';
 
 const ChatCard = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -11,6 +12,7 @@ const ChatCard = () => {
   const [cursorPosition, setCursorPosition] = useState([0, 0]);
   const [chatName, setChatName] = useState("Name of the chat Name of the chat");
   const chatNameInputRef = useRef<HTMLInputElement>(null);
+  const screenWidth = useScreenWidth();
 
   const handleDeleteChat = () => {
     setDeleteOption(false)
@@ -38,7 +40,7 @@ const ChatCard = () => {
 
   return (
     <>
-      <button className={styles.chatCardContainer} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <button className={`${styles.chatCardContainer} ${screenWidth < 768 && styles.mobileStyling}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         {editOption ? 
           <input 
             ref={chatNameInputRef} 
