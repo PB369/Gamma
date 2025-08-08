@@ -54,7 +54,7 @@ const ChatsList = () => {
                         <ChatCard/>
                         <ChatCard/>
                       </div>
-                    </div>
+                  </div>
                 </motion.div>
               )
             }
@@ -68,7 +68,7 @@ const ChatsList = () => {
             </motion.button>
           </motion.div>
           :
-          <motion.div className={styles.desktopChatsAccordionContainer}>
+          <motion.div className={`${styles.desktopChatsAccordionContainer} ${isExpanded && styles.expanded}`}>
             <div className={`${styles.desktopChatsListContainer} ${isExpanded && styles.expanded}`}>
               {isExpanded && (
                 <>
@@ -103,8 +103,8 @@ const ChatsList = () => {
             <motion.button
               className={`${styles.expandBtn} ${isExpanded && styles.expanded}`}
               onClick={handleExpandBtn}
-              animate={{ top: isExpanded ? `${window.innerHeight * 0.7 - 20}px` : '-20px' }}
-              transition={{ duration: 0.8 }}
+              // animate={{ left: isExpanded ? '100%' : '0' }}
+              transition={{ duration: 0.5 }}
             >
               <img src="/whiteIcons/arrowHeadToRight-icon.png" alt="arrowHeadToRight-icon" />
             </motion.button>

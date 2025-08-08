@@ -1,34 +1,5 @@
 .desktopChatsAccordionContainer {
-  background-color: #252525;
-  border-bottom: 1px solid #FFEB12;
-  position: fixed;
-  z-index: 992;
-
-  .expandBtn {
-    width: 80px;
-    height: 40px;
-    background-color: #252525;
-    border: 1px solid #FFEB12;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    
-    img {
-      width: 25px;
-      transform: rotate(90deg);
-    }
-    
-    &.expanded {
-      img {
-        transform: rotate(-90deg);
-      }
-    }
-  }
-
-  .desktopChatsListContainer {
-    z-index: 990;
+    z-index: 992;
     background-color: #252525;
     display: flex;
     justify-content: flex-start;
@@ -39,11 +10,54 @@
     height: 100vh;
     padding: 30px 0;
     box-shadow: 8px 0 8px -8px #000;
-    border-left: 2px solid #FFEB12;
+    border-left: 1px solid #FFEB12;
     position: fixed;
   
     &.expanded {
       width: 325px;
+    }
+
+  .expandBtn {
+    width: 45px;
+    height: 80px;
+    background-color: #252525;
+    border: 1px solid #FFEB12;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    z-index: 993;
+    
+    img {
+      width: 25px;
+    }
+    
+    &.expanded {
+      left: 100%;
+      
+      img {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  .desktopChatsListContainer {
+    z-index: 990;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    left: 100px;
+    width: 0;
+    height: 100vh;
+    padding: 30px 0;
+  
+    &.expanded {
+      width: 100%;
     }
   
     h2 {
@@ -82,10 +96,6 @@
         flex-direction: column;
         overflow-y: scroll;
       }
-    }
-  
-    .expandBtn {
-      
     }
   }
 }
