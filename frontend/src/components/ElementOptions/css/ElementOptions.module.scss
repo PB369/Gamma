@@ -1,0 +1,32 @@
+.elementOptionsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #313131;
+  border: 2px solid #989898;
+  border-radius: 4px;
+  min-width: 120px;
+
+  button {
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 20px;
+      margin-right: 5px;
+    }
+
+    p {
+      color: #fff;
+      font-family: 600;
+      font-size: 14px;
+    }
+
+    &:hover {
+      background-color: #404040;
+    }
+  }
+}

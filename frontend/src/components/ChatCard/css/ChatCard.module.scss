@@ -1,6 +1,6 @@
 .chatCardContainer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid #fff;
   border-radius: 4px;
@@ -10,11 +10,38 @@
   min-height: 52px;
   margin: 10px 0;
 
-  p {
+  span {
     color: #fff;
     font-weight: 600;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+  }
+
+  input {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .chatOptionsContainer {
+    min-width: 40px;
+    margin-left: 10px;
+    height: 100%;
+
+    button {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .ellipsisOfOptions {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin: 0 2px;
+      }
+    }
   }
 }
