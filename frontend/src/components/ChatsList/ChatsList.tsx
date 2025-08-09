@@ -109,6 +109,7 @@ const ChatsList = () => {
               onClick={handleExpandBtn}
               animate={{ x: isExpanded ? '325px' : '0' }}
               transition={{ duration: 0.8 }}
+              initial={false}
             >
               <img src="/whiteIcons/arrowHeadToRight-icon.png" alt="arrowHeadToRight-icon" />
             </motion.button>

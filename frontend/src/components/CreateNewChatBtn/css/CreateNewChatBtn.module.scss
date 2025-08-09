@@ -18,6 +18,9 @@
   p {
     color: #fff;
     font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &.mobileStyling {

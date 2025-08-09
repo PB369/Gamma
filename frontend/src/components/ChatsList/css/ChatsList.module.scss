@@ -29,13 +29,15 @@
     position: absolute;
     top: 50%;
     left: 0%;
+    transform: translateX(0);
     
     img {
       width: 25px;
     }
     
     &.expanded {
-      
+      transform: translateX(325px);
+
       img {
         transform: rotate(-180deg);
       }
@@ -67,6 +69,8 @@
       width: 90%;
       text-align: center;
       cursor: default;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   
     .yourChatsContainer {
@@ -83,6 +87,9 @@
         color: #fff;
         font-weight: 600;
         margin-bottom: 15px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
   
       .chatsList {
