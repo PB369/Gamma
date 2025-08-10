@@ -26,7 +26,7 @@ const AppLayout = () => {
           : 
           <SidebarDesktop  onSignOutBtnClick={()=>setShowConfirmModal(true)}/>
       }
-      <main className={styles.pageMainContent}>
+      <main className={`${styles.pageMainContent} ${screenWidth < 768 && styles.mobileOrientation}`}>
         <Outlet/>
       </main>
       <AnimatePresence>

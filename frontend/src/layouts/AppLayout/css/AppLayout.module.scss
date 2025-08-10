@@ -11,5 +11,9 @@
   .pageMainContent {
     width: calc(100% - 100px);
     background-color: #1A1A1A;
+
+    &.mobileOrientation {
+      width: 100%;
+    }
   }
 }
