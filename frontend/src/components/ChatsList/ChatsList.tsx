@@ -70,7 +70,7 @@ const ChatsList = () => {
           :
           <motion.div 
             className={`${styles.desktopChatsAccordionContainer} ${isExpanded && styles.expanded}`}
-            animate={{ width: isExpanded ? '325px' : '0' }}
+            animate={{ minWidth: isExpanded ? '325px' : '0', width: isExpanded ? '325px' : '0' }}
             transition={{ duration: 0.8 }}
           >
             <div className={`${styles.desktopChatsListContainer} ${isExpanded && styles.expanded}`}>

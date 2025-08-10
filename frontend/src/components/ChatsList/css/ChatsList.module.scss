@@ -7,14 +7,18 @@
     flex-direction: column;
     left: 100px;
     width: 0;
+    min-width: 0;
     height: 100vh;
     padding: 30px 0;
     box-shadow: 8px 0 8px -8px #000;
     border-left: 1px solid #FFEB12;
     position: sticky;
+    top: 0;
+    overflow: hidden;
   
     &.expanded {
       width: 325px;
+      min-width: 325px;
     }
 
   .expandBtn {
