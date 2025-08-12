@@ -1,3 +1,5 @@
+import Calendar from '../../../components/Calendar/Calendar'
+import MonthSelector from '../../../components/MonthSelector/MonthSelector'
 import styles from'./css/CalendarPage.module.scss'
 
 const CalendarPage = () => {

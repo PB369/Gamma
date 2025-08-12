@@ -45,7 +45,6 @@ function App() {
           <Route path="widgets" element={<WidgetsList/>} />
         </Route>
         <Route path='chat' element={<Chat/>}/>
-        {/* Outras rotas do app aqui */}
         <Route path='playlist' element={<Playlist/>}/>
         <Route path='email' element={<Email/>}/>
         <Route path='calendar' element={<Calendar/>}/>

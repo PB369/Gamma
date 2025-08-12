@@ -1,0 +1,18 @@
+.MonthSelectorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .toLeftSelectorBtn {
+        background-color: #252525;
+        padding: 10px;
+        border-radius: 4px;
+        min-width: 35px;
+        width: 60px;
+
+        img {
+            width: 25px;
+            transform: rotate(180deg);
+        }
+    }
+}
