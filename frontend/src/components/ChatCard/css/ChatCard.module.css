@@ -1,0 +1,45 @@
+.chatCardContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #1D1D1D;
+  width: 80%;
+  min-height: 52px;
+  margin: 10px 0;
+}
+.chatCardContainer.mobileStyling {
+  width: 90%;
+}
+.chatCardContainer span {
+  color: #fff;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.chatCardContainer input {
+  color: #fff;
+  font-weight: 600;
+}
+.chatCardContainer .chatOptionsContainer {
+  min-width: 40px;
+  margin-left: 10px;
+  height: 100%;
+}
+.chatCardContainer .chatOptionsContainer button {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chatCardContainer .chatOptionsContainer button .ellipsisOfOptions {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 2px;
+}/*# sourceMappingURL=ChatCard.module.css.map */

@@ -1,0 +1,27 @@
+.CreateNewChatBtnContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #1D1D1D;
+  width: 80%;
+  min-height: 52px;
+  margin: 30px 0;
+}
+.CreateNewChatBtnContainer .addIcon {
+  width: 20px;
+  margin-right: 10px;
+}
+.CreateNewChatBtnContainer p {
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.CreateNewChatBtnContainer.mobileStyling {
+  margin: 15px 0;
+  width: 100%;
+}/*# sourceMappingURL=CreateNewChatBtn.module.css.map */

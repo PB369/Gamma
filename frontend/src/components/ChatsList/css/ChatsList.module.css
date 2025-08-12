@@ -1,0 +1,174 @@
+.desktopChatsAccordionContainer {
+  z-index: 992;
+  background-color: #252525;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  left: 100px;
+  width: 0;
+  min-width: 0;
+  height: 100vh;
+  padding: 30px 0;
+  box-shadow: 8px 0 8px -8px #000;
+  border-left: 1px solid #FFEB12;
+  position: sticky;
+  top: 0;
+}
+.desktopChatsAccordionContainer.expanded {
+  width: 325px;
+  min-width: 325px;
+}
+.desktopChatsAccordionContainer .expandBtn {
+  width: 45px;
+  height: 80px;
+  background-color: #252525;
+  border: 1px solid #FFEB12;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateX(0);
+}
+.desktopChatsAccordionContainer .expandBtn img {
+  width: 25px;
+}
+.desktopChatsAccordionContainer .expandBtn.expanded {
+  transform: translateX(325px);
+}
+.desktopChatsAccordionContainer .expandBtn.expanded img {
+  transform: rotate(-180deg);
+}
+.desktopChatsAccordionContainer .desktopChatsListContainer {
+  z-index: 990;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  left: 100px;
+  width: 0;
+  height: 100%;
+  padding: 15px 0;
+}
+.desktopChatsAccordionContainer .desktopChatsListContainer.expanded {
+  width: 100%;
+}
+.desktopChatsAccordionContainer .desktopChatsListContainer h2 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 28px;
+  border-bottom: 1px solid #FFEB12;
+  padding-bottom: 25px;
+  width: 90%;
+  text-align: center;
+  cursor: default;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.desktopChatsAccordionContainer .desktopChatsListContainer .yourChatsContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  cursor: default;
+  overflow: hidden;
+}
+.desktopChatsAccordionContainer .desktopChatsListContainer .yourChatsContainer .yourChatsTitle {
+  width: 80%;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.desktopChatsAccordionContainer .desktopChatsListContainer .yourChatsContainer .chatsList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.mobileChatsAccordionContainer {
+  background-color: #252525;
+  width: 100%;
+  height: 0px;
+  border-bottom: 1px solid #FFEB12;
+  position: fixed;
+  top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 992;
+}
+.mobileChatsAccordionContainer.expanded {
+  height: 70vh;
+}
+.mobileChatsAccordionContainer .expandBtn {
+  width: 80px;
+  height: 40px;
+  background-color: #252525;
+  border: 1px solid #FFEB12;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.mobileChatsAccordionContainer .expandBtn img {
+  width: 25px;
+  transform: rotate(90deg);
+}
+.mobileChatsAccordionContainer .expandBtn.expanded img {
+  transform: rotate(-90deg);
+}
+.mobileChatsAccordionContainer .accordionContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid #FFEB12;
+}
+.mobileChatsAccordionContainer .accordionContent .mobileChatsListContainer {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.mobileChatsAccordionContainer .accordionContent h2 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 28px;
+}
+.mobileChatsAccordionContainer .accordionContent .yourChatsTitle {
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  text-align: center;
+}
+.mobileChatsAccordionContainer .accordionContent .chatsList {
+  width: 100%;
+  max-height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+}/*# sourceMappingURL=ChatsList.module.css.map */

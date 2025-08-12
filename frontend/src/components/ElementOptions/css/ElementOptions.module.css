@@ -1,0 +1,30 @@
+.elementOptionsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #313131;
+  border: 2px solid #989898;
+  border-radius: 4px;
+  min-width: 120px;
+}
+.elementOptionsContainer button {
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.elementOptionsContainer button img {
+  width: 20px;
+  margin-right: 10px;
+}
+.elementOptionsContainer button p {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  width: 100%;
+  text-align: left;
+}
+.elementOptionsContainer button:hover {
+  background-color: #404040;
+}/*# sourceMappingURL=ElementOptions.module.css.map */
