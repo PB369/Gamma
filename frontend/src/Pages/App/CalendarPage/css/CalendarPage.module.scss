@@ -5,16 +5,19 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 50px;
 
     .monthSelectorContainer {
         display: flex;
         justify-content: center;
         align-items: center;
+        align-self: flex-start;
 
         p {
             color: #fff;
             font-weight: 400;
             font-size: 40px;
+            margin-right: 20px;
         }
     }
 }

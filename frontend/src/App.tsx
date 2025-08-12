@@ -12,7 +12,7 @@ import WidgetsList from './components/WidgetsList/WidgetsList';
 import Chat from './Pages/App/ChatPage/Chat';
 import Playlist from './Pages/App/PlaylistPage/PlaylistPage';
 import Email from './Pages/App/EmailPage/Email';
-import Calendar from './Pages/App/CalendarPage/Calendar';
+import Calendar from './Pages/App/CalendarPage/CalendarPage';
 import Settings from './Pages/App/SettingsPage/SettingsPage';
 
 function App() {

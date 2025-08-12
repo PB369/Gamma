@@ -5,14 +5,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 50px;
 }
 .calendarPageContainer .monthSelectorContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: flex-start;
 }
 .calendarPageContainer .monthSelectorContainer p {
   color: #fff;
   font-weight: 400;
   font-size: 40px;
+  margin-right: 20px;
 }/*# sourceMappingURL=CalendarPage.module.css.map */
