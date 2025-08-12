@@ -10,6 +10,10 @@ import DashboardLayout from './layouts/DashboardLayout';
 import NotFound from './Pages/NotFound/NotFound';
 import WidgetsList from './components/WidgetsList/WidgetsList';
 import Chat from './Pages/App/Chat/Chat';
+import Playlist from './Pages/App/Playlist/Playlist';
+import Email from './Pages/App/Email/Email';
+import Calendar from './Pages/App/Calendar/Calendar';
+import Settings from './Pages/App/Settings/Settings';
 
 function App() {
 
@@ -42,6 +46,10 @@ function App() {
         </Route>
         <Route path='chat' element={<Chat/>}/>
         {/* Outras rotas do app aqui */}
+        <Route path='playlist' element={<Playlist/>}/>
+        <Route path='email' element={<Email/>}/>
+        <Route path='calendar' element={<Calendar/>}/>
+        <Route path='settings' element={<Settings/>}/>
       </Route>
       <Route element={<WelcomeLayout />}>
         <Route path="*" element={<NotFound />} />
