@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Dashboard from "../Pages/App/Dashboard/Dashboard";
+import Dashboard from "../Pages/App/DashboardPage/DashboardPage";
 
 const DashboardLayout = () => (
   <div className="dashboardLayout">

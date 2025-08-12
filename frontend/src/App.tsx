@@ -1,19 +1,19 @@
 import './App.scss'
 import { Navigate, Route, Routes } from "react-router-dom"
-import Welcome from "./Pages/Welcome/Welcome"
+import Welcome from "./Pages/WelcomePage/WelcomePage"
 import type { JSX } from 'react';
 import { useAuth } from './contexts/auth/useAuth';
 import WelcomeLayout from './layouts/WelcomeLayout';
 import AppLayout from './layouts/AppLayout/AppLayout';
-import Authentication from './Pages/Authentication/Authentication';
+import Authentication from './Pages/AuthenticationPage/Authentication';
 import DashboardLayout from './layouts/DashboardLayout';
-import NotFound from './Pages/NotFound/NotFound';
+import NotFound from './Pages/NotFoundPage/NotFoundPage';
 import WidgetsList from './components/WidgetsList/WidgetsList';
-import Chat from './Pages/App/Chat/Chat';
-import Playlist from './Pages/App/Playlist/Playlist';
-import Email from './Pages/App/Email/Email';
-import Calendar from './Pages/App/Calendar/Calendar';
-import Settings from './Pages/App/Settings/Settings';
+import Chat from './Pages/App/ChatPage/Chat';
+import Playlist from './Pages/App/PlaylistPage/PlaylistPage';
+import Email from './Pages/App/EmailPage/Email';
+import Calendar from './Pages/App/CalendarPage/Calendar';
+import Settings from './Pages/App/SettingsPage/SettingsPage';
 
 function App() {
 
