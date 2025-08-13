@@ -24,11 +24,6 @@ const Calendar = ({ month, year, events = [], onDayClick } : Props) => {
 
     const days: (Date | null)[] = [];
 
-    // Dias em branco antes do primeiro dia do mês
-    for (let i = 0; i < startDay; i++) {
-        days.push(null);
-    }
-
     // Dias do mês
     for (let i = 1; i <= totalDays; i++) {
         days.push(new Date(year, month, i));
@@ -77,11 +72,12 @@ const Calendar = ({ month, year, events = [], onDayClick } : Props) => {
                     <div className={styles.events}>
                         {visibleEvents.map((ev, i) => (
                         <div key={i} className={styles.event}>
-                            {ev.title}
+                            <span className={styles.eventColor} style={{backgroundColor: ev.color}}/>
+                            <span className={styles.eventInfo}>{ev.title}</span>
                         </div>
                         ))}
                         {extraCount > 0 && (
-                        <div className={styles.moreEvents}>+{extraCount} more</div>
+                        <div className={styles.moreEvents}>{extraCount} more...</div>
                         )}
                     </div>
                     </div>
