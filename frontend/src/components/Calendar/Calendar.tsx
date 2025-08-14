@@ -58,7 +58,7 @@ const Calendar = ({ month, year, events = [], onDayClick } : Props) => {
                 }
 
                 const dayEvents = getEventsForDay(date);
-                const visibleEvents = dayEvents.slice(0, 2);
+                const visibleEvents = dayEvents.slice(0, 3);
                 const extraCount = dayEvents.length - visibleEvents.length;
 
                 return (
@@ -72,8 +72,11 @@ const Calendar = ({ month, year, events = [], onDayClick } : Props) => {
                     <div className={styles.events}>
                         {visibleEvents.map((ev, i) => (
                         <div key={i} className={styles.event}>
-                            <span className={styles.eventColor} style={{backgroundColor: ev.color}}/>
-                            <span className={styles.eventInfo}>{ev.title}</span>
+                            <div className={styles.eventNameAndColor}>
+                                <span className={styles.eventColor} style={{backgroundColor: ev.color}}/>
+                                <span className={styles.eventInfo}>{ev.title}</span>
+                            </div>
+                            <p className={styles.eventTime}>{ev.time}</p>
                         </div>
                         ))}
                         {extraCount > 0 && (

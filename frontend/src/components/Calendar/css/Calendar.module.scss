@@ -2,19 +2,29 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .headerRow {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   background: #E0C90F;
-  padding: 0.5rem;
   font-weight: bold;
   text-align: center;
 }
 
 .headerCell {
-  padding: 0.25rem;
+  padding: 10px;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:first-child {
+    border-left: none;
+  }
 }
 
 .daysGrid {
@@ -52,7 +62,9 @@
 }
 
 .event {
-  background: #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: white;
   padding: 0.1rem 0.25rem;
   border-radius: 4px;
@@ -62,12 +74,24 @@
   text-overflow: ellipsis;
 }
 
+.eventNameAndColor {
+  display: flex;
+  height: 100%;
+}
+
 .eventColor {
   width: 5px;
   height: 100%;
+  margin-right: 5px;
+}
+
+.eventTime {
+  color: #d2c214;
+  font-weight: 600;
 }
 
 .moreEvents {
   color: #fff;
   font-size: 0.75rem;
+  padding: 0.1rem 0.25rem;
 }
