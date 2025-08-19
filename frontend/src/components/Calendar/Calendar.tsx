@@ -16,7 +16,7 @@ type Props = {
 
 const daysOfWeek  = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-const Calendar = ({ month, year, events = [], onDayClick } : Props) => {
+const Calendar = ({ month, year, events, onDayClick } : Props) => {
     const firstDayOfMonth = new Date(year, month, 1);
     const lastDayOfMonth = new Date(year, month + 1, 0);
     const startDay = firstDayOfMonth.getDay();
@@ -63,9 +63,9 @@ const Calendar = ({ month, year, events = [], onDayClick } : Props) => {
 
                 return (
                     <div
-                    key={date.toISOString()}
-                    className={styles.dayCell}
-                    onClick={() => onDayClick?.(date)}
+                        key={date.toISOString()}
+                        className={styles.dayCell}
+                        onClick={() => onDayClick?.(date, )}
                     >
                     <div className={styles.dayNumber}>{date.getDate()}</div>
 

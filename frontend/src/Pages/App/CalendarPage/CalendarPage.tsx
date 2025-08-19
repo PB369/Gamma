@@ -19,12 +19,11 @@ const CalendarPage = () => {
             day: date.getDate(),
             month: date.getMonth(),
             year: date.getFullYear(),
+            
         }))
     }
 
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-    
 
     return (
         <div className={styles.calendarPageContainer}>
