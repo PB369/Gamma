@@ -3,7 +3,7 @@ import { database } from '../database.js';
 
 const router = Router();
 
-router.get('/settings', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const { data } = await database.get('/settings?select=*');
         res.json(data);
@@ -12,7 +12,7 @@ router.get('/settings', async (req, res) => {
     }
 });
 
-router.post('/settings', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { theme, language, haveMFA,  } = req.body;
         const { data } = await database.post('/settings', [{ theme, language, haveMFA }]);
@@ -22,7 +22,7 @@ router.post('/settings', async (req, res) => {
     }
 });
 
-router.put('/settings/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { title } = req.body;
@@ -33,7 +33,7 @@ router.put('/settings/:id', async (req, res) => {
     }
 });
 
-router.delete('/settings/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { data } = await database.delete(`/settings?id=eq.${id}`);
