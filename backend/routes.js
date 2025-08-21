@@ -1,42 +1,42 @@
 import { Router } from 'express';
-import { supabase } from './supabase.js';
+import { database } from './database.js';
 
 const router = Router();
 
-router.get('/events', async (req, res) => {
+router.get('/users', async (req, res) => {
     try {
-        const { data } = await supabase.get('/events?select=*');
+        const { data } = await database.get('/users?select=*');
         res.json(data);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-router.post('/events', async (req, res) => {
+router.post('/users', async (req, res) => {
     try {
         const { title } = req.body;
-        const { data } = await supabase.post('/events', [{ title }]);
+        const { data } = await database.post('/users', [{ title }]);
         res.json(data);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-router.put('events/:id', async (req, res) => {
+router.put('users/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { title } = req.body;
-        const { data } = await supabase.patch(`/todos?id=eq.${id}`, { title });
+        const { data } = await database.patch(`/users?id=eq.${id}`, { title });
         res.json(data);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-router.delete('/events/:id', async (req, res) => {
+router.delete('/users/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { data } = await supabase.delete(`/events?id=eq.${id}`);
+        const { data } = await database.delete(`/users?id=eq.${id}`);
         res.json(data);
     } catch (error) {
         res.status(500).json({ error: error.message });
