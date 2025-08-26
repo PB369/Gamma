@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { DateDetailsType } from "../../Pages/App/CalendarPage/CalendarPage";
 
 
@@ -8,8 +8,7 @@ type Props = {
 }
 
 const DateDetails = ({dateDetails, setShowDateDetails}: Props) => {
-    const [expandEventDetails, setExpandEventDetails] = useState<boolean>(false);
-    console.log(dateDetails);
+    const [expandEventIndex, setExpandEventIndex] = useState<number | undefined>(undefined);
 
     return (
         <div>
@@ -17,15 +16,17 @@ const DateDetails = ({dateDetails, setShowDateDetails}: Props) => {
             <h3>{dateDetails?.month} {dateDetails?.day}, {dateDetails?.year}</h3>
             <p>Scheduled Activities</p>
             <div>
-                {dateDetails?.events.map(event => {
+                {dateDetails && dateDetails.events.length > 0 ?
+                dateDetails?.events.map((event, index) => {
+                    const mustExpand = expandEventIndex === index 
                     return (
-                        <div onClick={()=>setExpandEventDetails(prev => !prev)}>
+                        <div onClick={()=>setExpandEventIndex(mustExpand ? undefined : index)}>
                             <div>
                                 <p>{event.title}</p>
                                 <p>{event.time}</p>
                             </div>
                             <button>\/</button>
-                            {expandEventDetails && (
+                            {mustExpand && (
                                 <div>
                                     <span>
                                         <img src="" alt="" />
@@ -42,8 +43,10 @@ const DateDetails = ({dateDetails, setShowDateDetails}: Props) => {
                                 </div>
                             )}
                         </div>
-                    )
-                })}
+                    )})
+                    :
+                    (<p>There is no scheduled activities yet.</p>)
+                }
             </div>
         </div>
     )
