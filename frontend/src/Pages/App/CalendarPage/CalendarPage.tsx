@@ -3,31 +3,43 @@ import Calendar from '../../../components/Calendar/Calendar'
 import MonthSelector from '../../../components/MonthSelector/MonthSelector'
 import styles from'./css/CalendarPage.module.scss'
 import api from '../../../services/api';
+import DateDetails from '../../../components/DateDetails/DateDetails';
 
-type DateDetails = {
+export type DateDetailsType = {
     day: number;
     month: number;
     year: number;
+    events: EventItem[];
 }
 
 type EventItem = {
-  date: string;
-  title: string;
-  time?: string;
-  color?: string;
+    date: string;
+    title: string;
+    isFinished: boolean;
+    time?: string;
+    color?: string;
+    url?: string;
+    address?: string;
+    description?: string;
 };
 
 const CalendarPage = () => {
     const [month, setMonth] = useState(new Date().getMonth());
     const [year, setYear] = useState(new Date().getFullYear());
-    const [dateDetails, setDateDetails] = useState<DateDetails | undefined>(undefined);
+    const [dateDetails, setDateDetails] = useState<DateDetailsType | undefined>(undefined);
+    const [showDateDetails, setShowDateDetails] = useState<boolean>(false);
 
     const handleDayClick = (date: Date) => {
-        setDateDetails(prev => ({
+        const isoDate = date.toISOString().split("T")[0];
+
+        setDateDetails(() => ({
             day: date.getDate(),
             month: date.getMonth(),
             year: date.getFullYear(),
+            events: events.filter(event => event.date === isoDate),
         }));
+
+        setShowDateDetails(true);
     }
 
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -74,6 +86,9 @@ const CalendarPage = () => {
                 <MonthSelector onNext={nextMonth} onPrev={prevMonth} onToday={onToday} />
             </div>
             <Calendar month={month} year={year} events={events} onDayClick={(date)=>handleDayClick(date)}/>
+            {showDateDetails && (
+                <DateDetails dateDetails={dateDetails} setShowDateDetails={setShowDateDetails}/>
+            )}
         </div>
     )
 }
