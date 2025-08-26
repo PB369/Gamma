@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import usersRoute from './routes/usersRoute.js';
 import calendarRoute from './routes/calendarRoute.js';
 import settingsRoute from './routes/settingsRoute.js';
@@ -10,6 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173" })); 
 
 app.use('/users', usersRoute);
 app.use('/calendar', calendarRoute);

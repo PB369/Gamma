@@ -76,7 +76,7 @@ const Calendar = ({ month, year, events, onDayClick } : Props) => {
                                 <span className={styles.eventColor} style={{backgroundColor: ev.color}}/>
                                 <span className={styles.eventInfo}>{ev.title}</span>
                             </div>
-                            <p className={styles.eventTime}>{ev.time}</p>
+                            <p className={styles.eventTime}>at {ev.time}</p>
                         </div>
                         ))}
                         {extraCount > 0 && (
