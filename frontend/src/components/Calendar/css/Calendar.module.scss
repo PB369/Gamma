@@ -44,7 +44,7 @@
   display: flex;
   flex-direction: column;
   font-size: 0.9rem;
-  cursor: pointer;
+  cursor: default;
   background: #1E1E1E;
   transition: background 0.2s ease;
 }
@@ -53,6 +53,19 @@
   font-weight: bold;
   margin-bottom: 0.25rem;
   color: #fff;
+  width: fit-content;
+
+  &.currentDate {
+    background-color: #E0C90F;
+    border-radius: 50%;
+    color: #000;
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .events {

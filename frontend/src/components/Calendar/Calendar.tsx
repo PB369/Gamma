@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styles from './css/Calendar.module.scss'
 
 type EventItem = {
@@ -21,6 +22,7 @@ const Calendar = ({ month, year, events, onDayClick } : Props) => {
     const lastDayOfMonth = new Date(year, month + 1, 0);
     const startDay = firstDayOfMonth.getDay();
     const totalDays = lastDayOfMonth.getDate();
+    const [currentDate, setCurrentDate] = useState<string>("");
 
     const days: (Date | null)[] = [];
 
@@ -38,6 +40,11 @@ const Calendar = ({ month, year, events, onDayClick } : Props) => {
         const dateStr = date.toISOString().split("T")[0];
         return events.filter((ev) => ev.date === dateStr);
     };
+
+    useEffect(()=>{
+        const current = new Date;
+        setCurrentDate(current.toISOString().split("T")[0]);
+    }, []);
 
     return (
         <div className={styles.calendar}>
@@ -65,9 +72,9 @@ const Calendar = ({ month, year, events, onDayClick } : Props) => {
                     <div
                         key={date.toISOString()}
                         className={styles.dayCell}
-                        onClick={() => onDayClick?.(date, )}
+                        onClick={() => onDayClick?.(date)}
                     >
-                    <div className={styles.dayNumber}>{date.getDate()}</div>
+                    <div className={`${styles.dayNumber} ${date.toISOString().split("T")[0] === currentDate && styles.currentDate}`}>{date.getDate()}</div>
 
                     <div className={styles.events}>
                         {visibleEvents.map((ev, i) => (
@@ -76,7 +83,7 @@ const Calendar = ({ month, year, events, onDayClick } : Props) => {
                                 <span className={styles.eventColor} style={{backgroundColor: ev.color}}/>
                                 <span className={styles.eventInfo}>{ev.title}</span>
                             </div>
-                            <p className={styles.eventTime}>at {ev.time}</p>
+                            <p className={styles.eventTime}>{ev.time ? `at ${ev.time}` : `all day`}</p>
                         </div>
                         ))}
                         {extraCount > 0 && (
