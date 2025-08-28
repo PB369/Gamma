@@ -1,0 +1,136 @@
+.DateDetailsContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    min-width: 30%;
+    width: 30%;
+    background-color: #313131;
+    padding:  10px 40px;
+    box-shadow: 0 0 8px #000;
+    cursor: default;
+
+    .closeBtn {
+        color: #fff;
+        font-weight: 500;
+        align-self: flex-end;
+        font-size: 24px;
+        min-height: 24px;
+        min-width: 24px;
+    }
+
+    .dateTitle {
+        display: flex;
+        color: #fff;
+        font-weight: 500;
+        border-bottom: 2px solid #FFEB12;
+        padding-bottom: 5px;
+        padding: 0 8px;
+    }
+
+    .evtsContainerTitle {
+        color: #fff;
+        margin-top: 25px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    .eventsContainer {
+        background-color: #1E1E1E;
+        width: 100%;
+        min-height: 70%;
+        overflow-y: scroll;
+        padding: 25px;
+
+        .eventCard {
+            width: 100%;
+            min-height: 80px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            background-color: rgba(255, 235, 18, 0.35);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .leftMark {
+                background-color: #FFEB12;
+                width: 5px;
+                align-self: stretch;
+                border-radius: 4px 0 0 4px;
+            }
+
+            .evtCardContent {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                width: 100%;
+                padding: 0 10px;
+
+                .defaultContent {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    min-height: 80px;
+                    
+                    .titleAndTime {
+                        color: #fff;
+                        font-weight: 600;
+    
+                        &:hover {
+                            cursor: pointer;
+                            text-decoration: underline;
+                        }
+    
+                        .title {
+                            margin-bottom: 4px;
+                        }
+    
+                        .time {
+                            font-size: 13px;
+                        }
+                    }
+        
+                    .checkEvtBtn {
+                        border: 2px solid #FFEB12;
+                        border-radius: 4px;
+                        height: 23px;
+                        width: 23px;
+                    }
+                }
+    
+                .expandedDetailsContainer {
+                    border-top: 1px solid #FFEB12;
+                    width: 100%;
+                    padding: 10px 0;
+
+                    span {
+                        display: flex;
+                        align-items: center;
+
+                        .infoIcon {
+                            width: 25px;
+                        }
+
+                        p {
+                            color: #fff;
+                            font-size: 13px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .descriptionContainer {}
+                }
+            }
+
+        }
+        .noEvtMessage {}
+    }
+    .newEvtBtn {}
+}
