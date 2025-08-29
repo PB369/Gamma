@@ -51,57 +51,58 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
             <p className={styles.evtsContainerTitle}>Scheduled Activities</p>
             <div className={styles.eventsContainer}>
                 {dateDetails && dateDetails.events.length > 0 ?
-                dateDetails?.events.map((event, index) => {
-                    const mustExpand = expandEventIndex === index 
-                    return (
-                        <div className={styles.eventCard}>
-                            <div className={styles.leftMark}></div>
-                            <div className={styles.evtCardContent}>
-                                <div className={styles.defaultContent}>
-                                    <div onClick={()=>setExpandEventIndex(mustExpand ? undefined : index)} className={`${styles.titleAndTime} ${event.isFinished && styles.checked}`}>
-                                        <p className={styles.title}>{event.title}</p>
-                                        <p className={styles.time}>{event.time ? `${event.time}` : "All day"}</p>
+                    dateDetails?.events.map((event, index) => {
+                        const mustExpand = expandEventIndex === index 
+                        return (
+                            <div className={styles.eventCard}>
+                                <div className={styles.leftMark}></div>
+                                <div className={styles.evtCardContent}>
+                                    <div className={styles.defaultContent}>
+                                        <div onClick={()=>setExpandEventIndex(mustExpand ? undefined : index)} className={`${styles.titleAndTime} ${event.isFinished && styles.checked}`}>
+                                            <p className={styles.title}>{event.title}</p>
+                                            <p className={styles.time}>{event.time ? `${event.time}` : "All day"}</p>
+                                        </div>
+                                        <div className={styles.checkEvtBtn}>
+                                            <input 
+                                            type="checkbox" 
+                                            id={`eventCheckbox-${event.id}`}
+                                            name={`eventCheckbox-${event.id}`} 
+                                            checked={event.isFinished} className={styles.checkbox} 
+                                            onChange={()=>handleCheckEvt(event, index)}
+                                            />
+                                            <label 
+                                            htmlFor={`eventCheckbox-${event.id}`} 
+                                            className={styles.checkmark}
+                                            >
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div className={styles.checkEvtBtn}>
-                                        <input 
-                                        type="checkbox" 
-                                        id={`eventCheckbox-${event.id}`}
-                                        name={`eventCheckbox-${event.id}`} 
-                                        checked={event.isFinished} className={styles.checkbox} 
-                                        onChange={()=>handleCheckEvt(event, index)}
-                                        />
-                                        <label 
-                                        htmlFor={`eventCheckbox-${event.id}`} 
-                                        className={styles.checkmark}
-                                        >
-                                        </label>
-                                    </div>
+                                    {mustExpand && (
+                                        <div className={styles.expandedDetailsContainer}>
+                                            {event.url && (
+                                                <span>
+                                                    <img className={styles.infoIcon} src="/whiteIcons/link-icon.png" alt="location-icon" />
+                                                    <p>{event.url}</p>
+                                                </span>
+                                            )}
+                                            {event.address && (
+                                                <span>
+                                                    <img src="/whiteIcons/location-icon.png" alt="location-icon.png" />
+                                                    <p>{event.address}</p>
+                                                </span>
+                                            )}
+                                            {event.description && (
+                                                <span className={styles.descriptionContainer}>
+                                                    <img src="/whiteIcons/description-icon.png" alt="" />
+                                                    <p>{event.description}</p>
+                                                </span>
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
-                                {mustExpand && (
-                                    <div className={styles.expandedDetailsContainer}>
-                                        {event.url && (
-                                            <span>
-                                                <img className={styles.infoIcon} src="/whiteIcons/link-icon.png" alt="location-icon" />
-                                                <p>{event.url}</p>
-                                            </span>
-                                        )}
-                                        {event.address && (
-                                            <span>
-                                                <img src="/whiteIcons/location-icon.png" alt="location-icon.png" />
-                                                <p>{event.address}</p>
-                                            </span>
-                                        )}
-                                        {event.description && (
-                                            <span className={styles.descriptionContainer}>
-                                                <img src="/whiteIcons/description-icon.png" alt="" />
-                                                <p>{event.description}</p>
-                                            </span>
-                                        )}
-                                    </div>
-                                )}
                             </div>
-                        </div>
-                    )})
+                        )
+                    })
                     :
                     (<p className={styles.noEvtMessage}>There is no scheduled activities yet.</p>)
                 }
