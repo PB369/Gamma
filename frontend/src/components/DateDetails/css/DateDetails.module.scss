@@ -169,16 +169,30 @@
                     span {
                         display: flex;
                         align-items: center;
+                        margin-bottom: 5px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
 
                         img {
                             width: 25px;
                             margin-right: 5px;
                         }
 
-                        p {
+                        .linkIcon {
+                            transform: rotate(-45deg);
+                        }
+
+                        p, a {
                             color: #fff;
                             font-size: 13px;
                             font-weight: 600;
+                        }
+
+                        a:hover {
+                            cursor: pointer;
+                            text-decoration: underline;
                         }
                     }
 

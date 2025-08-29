@@ -91,17 +91,28 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
                                         </div>
                                     </div>
                                     {mustExpand && (
-                                        <div className={styles.expandedDetailsContainer}>
-                                            {event.url && (
+                                        <div 
+                                            className={styles.expandedDetailsContainer}
+                                            style={{
+                                                borderColor: `${event.color}`
+                                            }}
+                                        >
+                                            {event.link && (
                                                 <span>
-                                                    <img className={styles.infoIcon} src="/whiteIcons/link-icon.png" alt="location-icon" />
-                                                    <p>{event.url}</p>
+                                                    <img className={styles.linkIcon} src="/whiteIcons/link-icon.png" alt="location-icon" />
+                                                    <a href={event.link} target="_blank" rel="noopener noreferrer">{event.link}</a>
                                                 </span>
                                             )}
                                             {event.address && (
                                                 <span>
                                                     <img src="/whiteIcons/location-icon.png" alt="location-icon.png" />
-                                                    <p>{event.address}</p>
+                                                    <a
+                                                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.address)}`}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        {event.address}
+                                                    </a>
                                                 </span>
                                             )}
                                             {event.description && (

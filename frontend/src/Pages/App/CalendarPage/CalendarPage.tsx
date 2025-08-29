@@ -20,7 +20,7 @@ export type EventItemType = {
     isFinished: boolean;
     time?: string;
     color?: string;
-    url?: string;
+    link?: string;
     address?: string;
     description?: string;
 };
