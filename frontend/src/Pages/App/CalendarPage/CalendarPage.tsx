@@ -9,10 +9,12 @@ export type DateDetailsType = {
     day: number;
     month: number;
     year: number;
-    events: EventItem[];
+    events: EventItemType[];
 }
 
-type EventItem = {
+export type EventItemType = {
+    id: number;
+    created_at: string;
     date: string;
     title: string;
     isFinished: boolean;
@@ -36,7 +38,7 @@ const CalendarPage = () => {
             day: date.getDate(),
             month: date.getMonth(),
             year: date.getFullYear(),
-            events: events.filter(event => event.date === isoDate),
+            events: events.filter(event => event.date === isoDate).sort((a, b)=>new Date(a.created_at).getTime()-new Date(b.created_at).getTime()),
         }));
 
         setShowDateDetails(true);
@@ -44,7 +46,7 @@ const CalendarPage = () => {
 
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    const [events, setEvents] = useState<EventItem[]>([]);
+    const [events, setEvents] = useState<EventItemType[]>([]);
 
     useEffect(() => {
         api.get("/calendar")
@@ -87,7 +89,7 @@ const CalendarPage = () => {
             </div>
             <Calendar month={month} year={year} events={events} onDayClick={(date)=>handleDayClick(date)}/>
             {showDateDetails && (
-                <DateDetails dateDetails={dateDetails} setShowDateDetails={setShowDateDetails}/>
+                <DateDetails dateDetails={dateDetails} setDateDetails={setDateDetails} events={events} setEvents={setEvents} setShowDateDetails={setShowDateDetails}/>
             )}
         </div>
     )

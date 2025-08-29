@@ -87,6 +87,10 @@
                             cursor: pointer;
                             text-decoration: underline;
                         }
+
+                        &.checked {
+                            text-decoration: line-through;
+                        }
     
                         .title {
                             margin-bottom: 4px;
@@ -96,12 +100,57 @@
                             font-size: 13px;
                         }
                     }
-        
+
                     .checkEvtBtn {
                         border: 2px solid #FFEB12;
                         border-radius: 4px;
                         height: 23px;
                         width: 23px;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                        
+                        .checkbox {
+                            opacity: 0;
+                            cursor: pointer;
+                            height: 0;
+                            width: 0;
+                        }
+
+                        .checkmark {
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            min-height: 23px;
+                            min-width: 23px;
+                            background-color: transparent;
+                            border: 1px solid #FFEB12;
+                            border-radius: 4px;
+                        }
+
+                        .checkmark::after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                        }
+
+                        .checkbox:checked ~ .checkmark::after {
+                            display: block;
+                        }
+
+                        .checkmark::after {
+                            left: 31%;
+                            top: 15%;
+                            width: 7px;
+                            height: 12px;
+                            border: solid #FFEB12;
+                            border-width: 0 2px 2px 0;
+                            -webkit-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
                     }
                 }
     
@@ -114,8 +163,9 @@
                         display: flex;
                         align-items: center;
 
-                        .infoIcon {
+                        img {
                             width: 25px;
+                            margin-right: 5px;
                         }
 
                         p {

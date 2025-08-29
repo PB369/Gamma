@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     try {
-        const { data } = await database.get('/calendar?select=*');
+        const { data } = await database.get('/calendar?select=*&order=created_at.asc');
         res.json(data);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -32,12 +32,16 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { user_id, color, date, title, isFinished, time, link, address, description } = req.body;
-        const { data } = await database.patch(`/calendar?id=eq.${id}`, { color, date, title, isFinished, time, link, address, description });
-        res.json(data);
+        const updatedFields = req.body;
+        const { data } = await database.patch(`/calendar?id=eq.${id}`, updatedFields, {
+            headers: {
+                Prefer: 'return=representation'
+            }
+        });
+        res.json(data[0]);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
