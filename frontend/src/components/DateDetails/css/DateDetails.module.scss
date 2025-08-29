@@ -108,7 +108,7 @@
                     }
 
                     .checkEvtBtn {
-                        border: 2px solid #FFEB12;
+                        border: 1px solid #FFEB12;
                         border-radius: 4px;
                         height: 23px;
                         width: 23px;
@@ -152,8 +152,8 @@
                             top: 15%;
                             width: 7px;
                             height: 12px;
-                            border: solid #FFEB12;
-                            border-width: 0 2px 2px 0;
+                            border: solid #000;
+                            border-width: 0 1px 1px 0;
                             -webkit-transform: rotate(45deg);
                             -ms-transform: rotate(45deg);
                             transform: rotate(45deg);
@@ -195,6 +195,7 @@
             margin: auto;
         }
     }
+
     .newEvtBtn {
         background-color: #FFEB12;
         color: #000;

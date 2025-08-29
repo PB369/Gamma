@@ -54,25 +54,38 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
                     dateDetails?.events.map((event, index) => {
                         const mustExpand = expandEventIndex === index 
                         return (
-                            <div className={styles.eventCard}>
-                                <div className={styles.leftMark}></div>
+                            <div 
+                                className={styles.eventCard}
+                                style={{backgroundColor: `${event.color}` + 59}}
+                            >
+                                <div 
+                                    className={styles.leftMark}
+                                    style={{backgroundColor: `${event.color}`}}
+                                />
                                 <div className={styles.evtCardContent}>
                                     <div className={styles.defaultContent}>
                                         <div onClick={()=>setExpandEventIndex(mustExpand ? undefined : index)} className={`${styles.titleAndTime} ${event.isFinished && styles.checked}`}>
                                             <p className={styles.title}>{event.title}</p>
                                             <p className={styles.time}>{event.time ? `${event.time}` : "All day"}</p>
                                         </div>
-                                        <div className={styles.checkEvtBtn}>
+                                        <div 
+                                            className={styles.checkEvtBtn}
+                                            style={{borderColor: `${event.color}`}}
+                                        >
                                             <input 
-                                            type="checkbox" 
-                                            id={`eventCheckbox-${event.id}`}
-                                            name={`eventCheckbox-${event.id}`} 
-                                            checked={event.isFinished} className={styles.checkbox} 
-                                            onChange={()=>handleCheckEvt(event, index)}
+                                                type="checkbox" 
+                                                id={`eventCheckbox-${event.id}`}
+                                                name={`eventCheckbox-${event.id}`} 
+                                                checked={event.isFinished} className={styles.checkbox} 
+                                                onChange={()=>handleCheckEvt(event, index)}
                                             />
                                             <label 
-                                            htmlFor={`eventCheckbox-${event.id}`} 
-                                            className={styles.checkmark}
+                                                htmlFor={`eventCheckbox-${event.id}`} 
+                                                className={styles.checkmark}
+                                                style={{
+                                                    borderColor: `${event.color}`,
+                                                    backgroundColor: event.isFinished ? `${event.color}` : 'transparent'
+                                                }}
                                             >
                                             </label>
                                         </div>
