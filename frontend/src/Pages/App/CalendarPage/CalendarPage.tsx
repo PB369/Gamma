@@ -30,7 +30,6 @@ const CalendarPage = () => {
     const [year, setYear] = useState(new Date().getFullYear());
     const [dateDetails, setDateDetails] = useState<DateDetailsType | undefined>(undefined);
     const [showDateDetails, setShowDateDetails] = useState<boolean>(false);
-
     
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 

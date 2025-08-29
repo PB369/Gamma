@@ -8,7 +8,7 @@ const ChatCard = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [showChatOptions, setShowChatOptions] = useState<boolean>(false);
   const [editOption, setEditOption] = useState(false);
-  const [deleteOption, setDeleteOption] = useState(false)
+  const [deleteOption, setDeleteOption] = useState(false);
   const [cursorPosition, setCursorPosition] = useState([0, 0]);
   const [chatName, setChatName] = useState("Name of the chat Name of the chat");
   const chatNameInputRef = useRef<HTMLInputElement>(null);

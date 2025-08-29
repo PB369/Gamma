@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { DateDetailsType, EventItemType } from "../../Pages/App/CalendarPage/CalendarPage";
 import styles from './css/DateDetails.module.scss'
 import api from "../../services/api";
+import ConfirmModal from "../ConfirmModal/ConfirmModal";
+import ElementOptions from "../ElementOptions/ElementOptions";
 
 type Props = {
     dateDetails: DateDetailsType | undefined;
@@ -13,6 +15,10 @@ type Props = {
 
 const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDateDetails}: Props) => {
     const [expandEventIndex, setExpandEventIndex] = useState<number | undefined>(undefined);
+    const [cursorPosition, setCursorPosition] = useState([0, 0]);
+    const [showEventOptions, setShowEventOptions] = useState<boolean>(false);
+    const [editOption, setEditOption] = useState(false);
+    const [deleteOption, setDeleteOption] = useState(false);
 
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -44,6 +50,16 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
         });
     }
 
+    const handleContextMenu = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        setCursorPosition([e.clientX, e.clientY]);
+        setShowEventOptions(true)
+    }
+
+    const handleDeleteEvent = () => {
+        
+    }
+
     return (
         <div className={styles.DateDetailsContainer}>
             <button className={styles.closeBtn} onClick={()=>setShowDateDetails(false)}>X</button>
@@ -57,6 +73,7 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
                             <div 
                                 className={styles.eventCard}
                                 style={{backgroundColor: `${event.color}` + 59}}
+                                onContextMenu={e=>handleContextMenu(e)}
                             >
                                 <div 
                                     className={styles.leftMark}
@@ -132,6 +149,16 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
                 }
             </div>
             <button className={styles.newEvtBtn}>Schedule a new activity</button>
+            {showEventOptions && 
+                <ElementOptions 
+                elementType={'chatCard'} 
+                setEditOption={setEditOption} 
+                setDeleteOption={setDeleteOption} 
+                cursorPosition={cursorPosition}
+                onClose={()=>setShowEventOptions(false)}
+                />
+            }
+            {deleteOption && <ConfirmModal actionType='deleteChat' onCancelAction={()=>setDeleteOption(false)} onConfirmAction={handleDeleteEvent}/>}
         </div>
     )
 }
