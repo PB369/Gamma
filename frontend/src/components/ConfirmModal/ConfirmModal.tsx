@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import styles from './css/ConfirmModal.module.scss'
 
 type Props = {
-  actionType: 'signOut' | 'deleteChat' | 'deleteAccount';
+  actionType: 'signOut' | 'deleteChat' | 'deleteAccount' | 'deleteEvent';
   onConfirmAction: ()=>void;
   onCancelAction: ()=>void;
 }
@@ -14,6 +14,7 @@ const ConfirmModal = ({actionType, onConfirmAction, onCancelAction}: Props) => {
       case 'signOut': return 'Are you sure you want to sign out?'
       case 'deleteChat': return 'Are you sure you want to delete this chat?'
       case 'deleteAccount': return 'Are you sure you want to delete your account?'
+      case 'deleteEvent': return 'Are you sure you want to delete this activity?'
     }
   }
 

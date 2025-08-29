@@ -19,6 +19,8 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
     const [showEventOptions, setShowEventOptions] = useState<boolean>(false);
     const [editOption, setEditOption] = useState(false);
     const [deleteOption, setDeleteOption] = useState(false);
+    const [selectedEvent, setSelectedEvent] = useState<EventItemType | null>(null);
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -50,14 +52,35 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
         });
     }
 
-    const handleContextMenu = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleContextMenu = (e: React.MouseEvent<HTMLDivElement>, event: EventItemType, index: number) => {
         e.preventDefault();
         setCursorPosition([e.clientX, e.clientY]);
-        setShowEventOptions(true)
+        setShowEventOptions(true);
+        setSelectedEvent(event);
+        setSelectedIndex(index);
     }
 
-    const handleDeleteEvent = () => {
-        
+    const handleDeleteEvent = async (event: EventItemType, index: number) => {
+        if (!dateDetails) return;
+
+        const prevDateDetails = { ...dateDetails };
+        const prevEvents = [...events];
+
+        const updatedDateEvents = dateDetails.events.filter((_, i) => i !== index);
+        setDateDetails({ ...dateDetails, events: updatedDateEvents });
+
+        const updatedAllEvents = events.filter(e => e.id !== event.id);
+        setEvents(updatedAllEvents);
+
+        try {
+            await api.delete(`/calendar/${event.id}`);
+            setDeleteOption(false);
+            setShowEventOptions(false);
+        } catch (err) {
+            console.error(err);
+            setDateDetails(prevDateDetails);
+            setEvents(prevEvents);
+        }
     }
 
     return (
@@ -73,7 +96,7 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
                             <div 
                                 className={styles.eventCard}
                                 style={{backgroundColor: `${event.color}` + 59}}
-                                onContextMenu={e=>handleContextMenu(e)}
+                                onContextMenu={e=>handleContextMenu(e, event, index)}
                             >
                                 <div 
                                     className={styles.leftMark}
@@ -151,14 +174,15 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
             <button className={styles.newEvtBtn}>Schedule a new activity</button>
             {showEventOptions && 
                 <ElementOptions 
-                elementType={'chatCard'} 
-                setEditOption={setEditOption} 
-                setDeleteOption={setDeleteOption} 
-                cursorPosition={cursorPosition}
-                onClose={()=>setShowEventOptions(false)}
+                    elementType={'chatCard'} 
+                    setEditOption={setEditOption} 
+                    setDeleteOption={setDeleteOption} 
+                    cursorPosition={cursorPosition}
+                    onClose={()=>setShowEventOptions(false)}
                 />
             }
-            {deleteOption && <ConfirmModal actionType='deleteChat' onCancelAction={()=>setDeleteOption(false)} onConfirmAction={handleDeleteEvent}/>}
+            {deleteOption && selectedEvent && selectedIndex !== null &&
+                (<ConfirmModal actionType='deleteEvent' onCancelAction={()=>setDeleteOption(false)} onConfirmAction={() => handleDeleteEvent(selectedEvent, selectedIndex)}/>)}
         </div>
     )
 }
