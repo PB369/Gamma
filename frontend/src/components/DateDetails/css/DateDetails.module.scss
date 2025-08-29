@@ -13,14 +13,28 @@
     box-shadow: 0 0 8px #000;
     cursor: default;
 
-    .closeBtn {
-        color: #fff;
-        font-weight: 500;
-        align-self: flex-end;
-        font-size: 24px;
-        min-height: 24px;
-        min-width: 24px;
+    .navButtons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 15px;
+
+        .returnBtn {
+            width: 35px;
+        }
+        
+        .closeBtn {
+            color: #fff;
+            font-weight: 500;
+            align-self: flex-end;
+            font-size: 24px;
+            min-height: 24px;
+            min-width: 24px;
+            margin-left: auto;
+        }
     }
+
 
     .dateTitle {
         display: flex;
@@ -38,16 +52,5 @@
         font-weight: 500;
         margin-bottom: 15px;
         font-size: 20px;
-    }
-
-    .newEvtBtn {
-        background-color: #FFEB12;
-        color: #000;
-        font-weight: 600;
-        font-size: 16px;
-        width: 100%;
-        padding: 15px 0;
-        margin-top: 30px;
-        min-height: 58px;
     }
 }

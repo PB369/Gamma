@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { DateDetailsType, EventItemType } from "../../Pages/App/CalendarPage/CalendarPage";
 import styles from './css/DateDetails.module.scss'
 import api from "../../services/api";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import ElementOptions from "../ElementOptions/ElementOptions";
 import EventsContainer from "../EventsContainer/EventsContainer";
+import EventEdition from "../EventEdition/EventEdition";
+import DateDetailsBtn from "../DateDetailsBtn/DateDetailsBtn";
 
 type Props = {
     dateDetails: DateDetailsType | undefined;
@@ -22,6 +24,7 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
     const [deleteOption, setDeleteOption] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState<EventItemType | null>(null);
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
     const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -30,10 +33,12 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
 
         const updatedEvts = [...dateDetails.events]
         updatedEvts[index] = {...event, isFinished: !event.isFinished};
+
         setDateDetails({...dateDetails, events: updatedEvts});
 
         const updatedAllEvents = events.map(e => 
         e.id === event.id ? { ...e, isFinished: !e.isFinished } : e);
+        
         setEvents(updatedAllEvents);
 
         api.patch(`/calendar/${event.id}`, {
@@ -61,6 +66,14 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
         setSelectedIndex(index);
     }
 
+    useEffect(()=>{
+        if(editOption){
+            setIsEditMode(true);
+            setShowEventOptions(false);
+            setEditOption(false);
+        }
+    }, [editOption]);
+
     const handleDeleteEvent = async (event: EventItemType, index: number) => {
         if (!dateDetails) return;
 
@@ -68,9 +81,11 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
         const prevEvents = [...events];
 
         const updatedDateEvents = dateDetails.events.filter((_, i) => i !== index);
+
         setDateDetails({ ...dateDetails, events: updatedDateEvents });
 
         const updatedAllEvents = events.filter(e => e.id !== event.id);
+        
         setEvents(updatedAllEvents);
 
         try {
@@ -86,22 +101,55 @@ const DateDetails = ({dateDetails, setDateDetails, events, setEvents, setShowDat
 
     return (
         <div className={styles.DateDetailsContainer}>
-            <button className={styles.closeBtn} onClick={()=>setShowDateDetails(false)}>X</button>
-            <h3 className={styles.dateTitle}>{dateDetails && monthsList[dateDetails?.month]} {dateDetails?.day}, {dateDetails?.year}</h3>
-            <p className={styles.evtsContainerTitle}>Scheduled Activities</p>
-            <EventsContainer dateDetails={dateDetails} expandEventIndex={expandEventIndex} handleCheckEvt={handleCheckEvt} handleContextMenu={handleContextMenu} setExpandEventIndex={setExpandEventIndex}/>
-            <button className={styles.newEvtBtn}>Schedule a new activity</button>
+            <div className={styles.navButtons}>
+                {isEditMode && (
+                    <button className={styles.returnBtn} onClick={()=>setIsEditMode(false)}>
+                        <img src="/whiteIcons/leftArrow-icon.png" alt="leftArrow-icon"/>
+                    </button>
+                )}
+                <button className={styles.closeBtn} onClick={()=>setShowDateDetails(false)}>X</button>
+            </div>
+
+            <h3 className={styles.dateTitle}>
+                {dateDetails && monthsList[dateDetails?.month]} {dateDetails?.day}, {dateDetails?.year}
+            </h3>
+            <p className={styles.evtsContainerTitle}>{isEditMode ? 'Activity Edition' : 'Scheduled Activities'}</p>
+
+            {isEditMode && selectedIndex && dateDetails ? (
+                <EventEdition
+                    dateDetails={dateDetails}
+                    selectedEvent={selectedEvent}
+                    selectedIndex={selectedIndex}
+                />
+            ) : (
+                <EventsContainer 
+                    dateDetails={dateDetails} 
+                    expandEventIndex={expandEventIndex} 
+                    handleCheckEvt={handleCheckEvt} 
+                    handleContextMenu={handleContextMenu} 
+                    setExpandEventIndex={setExpandEventIndex}
+                />
+            )}
+
+            <DateDetailsBtn type={isEditMode ? 'save' : 'create'} setIsEditMode={setIsEditMode}/>
+
             {showEventOptions && 
                 <ElementOptions 
-                    elementType={'chatCard'} 
+                    elementType={'eventCard'} 
                     setEditOption={setEditOption} 
                     setDeleteOption={setDeleteOption} 
                     cursorPosition={cursorPosition}
                     onClose={()=>setShowEventOptions(false)}
                 />
             }
-            {deleteOption && selectedEvent && selectedIndex !== null &&
-                (<ConfirmModal actionType='deleteEvent' onCancelAction={()=>setDeleteOption(false)} onConfirmAction={() => handleDeleteEvent(selectedEvent, selectedIndex)}/>)}
+
+            {deleteOption && selectedEvent && selectedIndex !== null && (
+                <ConfirmModal 
+                    actionType='deleteEvent' 
+                    onCancelAction={()=>setDeleteOption(false)} 
+                    onConfirmAction={()=>handleDeleteEvent(selectedEvent, selectedIndex)}
+                />
+            )}
         </div>
     )
 }

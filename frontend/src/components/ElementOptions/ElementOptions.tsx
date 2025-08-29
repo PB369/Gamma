@@ -2,11 +2,11 @@ import { useEffect, useRef, type SetStateAction } from 'react';
 import styles from './css/ElementOptions.module.scss'
 
 type Props = {
-  elementType: 'chatCard';
-  setEditOption: React.Dispatch<SetStateAction<boolean>>,
-  setDeleteOption: React.Dispatch<SetStateAction<boolean>>,
-  cursorPosition: number[],
-  onClose: ()=>void,
+  elementType: 'chatCard' | 'eventCard';
+  setEditOption: React.Dispatch<SetStateAction<boolean>>;
+  setDeleteOption: React.Dispatch<SetStateAction<boolean>>;
+  cursorPosition: number[];
+  onClose: ()=>void;
 }
 
 const ElementOptions = ({setEditOption, setDeleteOption, cursorPosition, onClose}: Props) => {
