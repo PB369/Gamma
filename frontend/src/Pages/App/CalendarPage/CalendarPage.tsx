@@ -31,6 +31,21 @@ const CalendarPage = () => {
     const [dateDetails, setDateDetails] = useState<DateDetailsType | undefined>(undefined);
     const [showDateDetails, setShowDateDetails] = useState<boolean>(false);
 
+    
+    const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const [events, setEvents] = useState<EventItemType[]>([]);
+
+    useEffect(() => {
+        api.get("/calendar")
+        .then((res) => setEvents(res.data))
+        .catch((err) => console.error(err));
+    }, []);
+    
+    useEffect(() => {
+        console.log(events);
+    }, [events]);
+    
     const handleDayClick = (date: Date) => {
         const isoDate = date.toISOString().split("T")[0];
 
@@ -43,20 +58,6 @@ const CalendarPage = () => {
 
         setShowDateDetails(true);
     }
-
-    const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-    const [events, setEvents] = useState<EventItemType[]>([]);
-
-    useEffect(() => {
-        api.get("/calendar")
-        .then((res) => setEvents(res.data))
-        .catch((err) => console.error(err));
-    }, []);
-
-    useEffect(() => {
-        console.log(events);
-    }, [events]);
 
     const nextMonth = () => {
         if (month === 11) {
@@ -77,15 +78,17 @@ const CalendarPage = () => {
     };
 
     const onToday = () => {
-        setMonth(new Date().getMonth());
-        setYear(new Date().getFullYear());
+        const today = new Date();
+        setMonth(today.getMonth());
+        setYear(today.getFullYear());
+        handleDayClick(today)
     };
 
     return (
         <div className={styles.calendarPageContainer}>
             <div className={styles.monthSelectorContainer}>
                 <p>{monthsList[month]}, {year}</p>
-                <MonthSelector onNext={nextMonth} onPrev={prevMonth} onToday={onToday} />
+                <MonthSelector onNext={nextMonth} onPrev={prevMonth} onToday={onToday}/>
             </div>
             <Calendar month={month} year={year} events={events} onDayClick={(date)=>handleDayClick(date)}/>
             {showDateDetails && (
